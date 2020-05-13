@@ -6,6 +6,8 @@ ProjetoAprendizes
 .ruby-version
 
 * System dependencies
+    Devise
+    Poke-Api-V2
 
 * Configuration
 
@@ -19,4 +21,6 @@ ProjetoAprendizes
 
 * Deployment instructions
 
-* ...
+#Sobre o sistema.
+
+Descrição: Uma Pokeche, que liste todos os Pokemons da Primeira Geração.
