@@ -33,14 +33,15 @@
 
   <div class="field">
     <%= f.label :sex %><br />
-    <label for 'user_sex_f'>Female</label>
+
     <%= radio_button(:user, :sex, 'f') %>
+    <label for 'user_sex_f'>Female</label>
 
-    <label for 'user_sex_u'>Male</label>
     <%= radio_button(:user, :sex, 'm') %>
+    <label for 'user_sex_m'>Male</label>
 
-    <label for 'user_sex_m'>Undefind</label>
-    <%= radio_button(:user, :sex, 'u') %>
+    <%= radio_button(:user, :sex, 'o') %>
+    <label for 'user_sex_u'>Another</label>
   </div> 
 
   <div class="field">
