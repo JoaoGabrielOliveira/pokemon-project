@@ -24,3 +24,9 @@ ProjetoAprendizes
 #Sobre o sistema.
 
 Descrição: Uma Pokeche, que liste todos os Pokemons da Primeira Geração.
+
+
+#Getting Starded
+    * Criar e popular o Banco de Dados
+    rails db:setup
+    rails db:populate:pokemons
