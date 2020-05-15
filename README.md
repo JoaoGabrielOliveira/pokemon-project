@@ -5,9 +5,11 @@ ProjetoAprendizes
 * Ruby version
 .ruby-version
 
-* System dependencies
-    Devise
-    Poke-Api-V2
+* Dependencias do Programa
+    - Poke-Api-V2
+        - GEM que realiza consultas na [PokéApi](https://github.com/rdavid1099/poke-api-v2)
+    - Jbuilder 
+        - Para construir API json com maior facilidade.
 
 * Configuration
 
