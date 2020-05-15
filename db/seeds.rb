@@ -6,18 +6,41 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-joao = User.new
-joao.first_name = 'João'
-joao.last_name = 'G.'
-joao.email = 'joao@gmail.com'
-joao.date_of_birth = Date.new
-joao.password = '123456'
-joao.sex = 'm'
+joao = {
+:first_name => 'João',
+:last_name => 'G.',
+:email => 'joao@gmail.com',
+:date_of_birth => Date.new,
+:password => '123456',
+:sex => 'm'
+}
 
-bruna = User.new
-bruna.first_name = 'Bruna'
-bruna.last_name = 'C.'
-bruna.email = 'bruna@gmail.com'
-bruna.date_of_birth = Date.new
-bruna.password = '123456'
-bruna.sex = 'f'
+bruna = {
+:first_name => 'Bruna',
+:last_name => 'C.',
+:email => 'bruna@gmail.com',
+:date_of_birth => Date.new,
+:password => '123456',
+:sex => 'f'
+}
+
+j = User.new(joao)
+b = User.new(bruna)
+
+
+
+#Populando Pokemons
+pokemons = []
+
+# Recebe todas as Especies de Pokemon da Geração (RETORNA: Array)
+especies = PokeApi.get(generation: '1').pokemon_species
+
+especies.each do |esp|
+    po = PokeApi.get(pokemon: esp.name)
+    p = { id: po.order, name: po.name, weight: po.weight, height: po.height, avatar: po.sprites.front_default }
+    pokemons.push(p)
+end
+
+pokemons.each do |pokemon|
+    Pokemon.find_or_create_by!(pokemon)
+end
