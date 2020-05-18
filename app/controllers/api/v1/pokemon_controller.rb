@@ -8,6 +8,9 @@ class Api::V1::PokemonController < ApplicationController
     end
 
     def show
-        @pokemon = Pokemon.find(params[:id])
+        begin
+            @pokemon = Pokemon.find(params[:id])    
+        rescue => exception
+        end
     end
 end
