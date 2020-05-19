@@ -26,6 +26,8 @@ gem 'devise'
 
 gem 'poke-api-v2'
 
+gem 'tty-spinner'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
