@@ -99,7 +99,9 @@ Códigos criados pelos pelo Rails que execulta uma ou mais tarefa ou código exp
 ---
 
 ## MODEL
-### Pokemon {Mostrar DER}
+### Pokemon
+
+[Imagem com DER do MODEL Pokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/db/DER.png)
 
 -------------------------
 
