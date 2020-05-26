@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import Rotas from './routes'
 
 const App = () => {
 
     return(
-        <h1>Olá mundo</h1>
+        <Fragment>
+            <BrowserRouter>
+                <Rotas />
+            </BrowserRouter>
+        </Fragment>
     )
 
 }

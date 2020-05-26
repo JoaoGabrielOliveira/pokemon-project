@@ -1,8 +1,8 @@
 import React from 'react'
 
-const TelaPokemon = (props) => {
+const TelaPokemon = () => {
     return(
-        <h1> Tela Pokemon {props.name} </h1>
+        <h1> Tela Pokemon </h1>
     )
 }
 
