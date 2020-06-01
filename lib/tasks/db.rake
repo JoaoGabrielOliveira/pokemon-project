@@ -3,7 +3,6 @@ namespace :db do
     desc "Pegando Pokemons da API PokeAPI e adicionando a tabela Pokemon"
     task pokemon: :environment do
       
-
       spinners = TTY::Spinner::Multi.new("[:spinner] Populando tabela Pokemons OBS: Isso pode demorar alguns segundos")
 
       sp1 = spinners.register "[:spinner] Pegando Pokemons da PokeAPI"
@@ -36,6 +35,40 @@ namespace :db do
 
       sp3.success
       
+		end
+		
+		desc "Pegar todos os Tipos de Pokemon da PokeAPI e adicionar a tabela Types"
+		task types: :environment do
+			spinners = TTY::Spinner::Multi.new("[:spinner] Populando tabela Pokemons OBS: Isso pode demorar alguns segundos")
+
+      sp1 = spinners.register "[:spinner] Pegando Tipos da PokeAPI"
+      sp2 = spinners.register "[:spinner] Populando array com Tipos da PokeAPI"
+      sp3 = spinners.register "[:spinner] Inserindo no Banco de Dados os Tipos do array"
+      
+      types_names = PokeApi.get(generation: '1').types
+      sp1.success
+
+      types = []
+
+      types_names.each do |t|
+				type_api = PokeApi.get(type: t.name)
+				
+				type = { id:type_api.id, name:type_api.name }
+				
+        types.push(type)
+        sp2.spin
+      end
+
+      sp2.success
+
+
+      types.each do |type|
+        Type.find_or_create_by!(type)
+        sp3.spin
+      end
+
+      sp3.success
     end
-  end  
+
+	end
 end
