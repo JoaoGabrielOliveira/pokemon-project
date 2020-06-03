@@ -1,3 +1,3 @@
 class Pokemon < ApplicationRecord
-    belongs_to :pokemon_type, polymorphic: true
+    belongs_to :pokemon_to_type
 end

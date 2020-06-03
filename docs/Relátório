@@ -1,0 +1,15 @@
+Hoje é terça feira, 2 de junho
+
+Não consigo resolver o problema referente aos tipos de Pokemons
+Qual o problema:
+Cada Pokemon pertence a uma categoria ou tipo, porém há pokemons de mais de um tipo.
+
+Possivel Solução:
+    Criar um tabela auxiliar que guarda:
+        id do campo
+        id do pokemon
+        id do tipo1
+        id do tipo2 -> Caso o pokemon seja de um tipo apenas, esse ficara núlo
+
+Processo
+    Criar uma task do Rails para pegar os Pokemons da API e transfirir para a tabela

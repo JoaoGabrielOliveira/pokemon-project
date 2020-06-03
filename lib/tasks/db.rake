@@ -7,35 +7,58 @@ namespace :db do
 
       sp1 = spinners.register "[:spinner] Pegando Pokemons da PokeAPI"
       sp2 = spinners.register "[:spinner] Populando array com Pokemons da PokeAPI"
-      sp3 = spinners.register "[:spinner] Inserindo no Banco de Dados os pokemons do Array"
+      sp3 = spinners.register "[:spinner] Inserindo Pokemons à tabela Pokemons"
+      sp4 = spinners.register "[:spinner] Inserindo os Tipos de Pokemons à tabela PokemonToTypes"
       sp1.auto_spin
       
       especies = PokeApi.get(generation: '1').pokemon_species.map(& :name)
       sp1.success
 
-      pokemons = []
+      v_pokemons = []
+      v_pokemons_to_type = []
+
+      if PokemonType.any? 
+        %w(rails db:populate:types)
+      end
+
       
+
       especies.each do |esp|
-        types = []
+        
         po = PokeApi.get(pokemon: esp)
 
-        po.types.each do |t|
-          t = PokemonType.find_by!(name: t.type.name)
-          types.push(id:t.id)
+        p = { id: po.order, name: po.name, weight: po.weight, height: po.height, avatar: po.sprites.front_default }
+        ptot = nil
+        types = [PokemonType.find_by(name: po.types[0].type.name).id]
+        if po.types[1] == nil
+          ptot = { pokemon_id: po.order, pokemon_type_1: types[0], pokemon_type_2:nil }
+        else
+          ptot = { pokemon_id: po.order, pokemon_type_1:types[0], pokemon_type_2:PokemonType.find_by(name: po.types[1].type.name).id }
         end
-        p = { id: po.order, name: po.name, weight: po.weight, height: po.height, avatar: po.sprites.front_default, pokemon_type: types }
-        pokemons.push(p)
+        
+        v_pokemons.push(p)
+        v_pokemons_to_type.push(ptot)
+        
         sp2.spin
       end
 
       sp2.success
 
-      pokemons.each do |pokemon|
+      v_pokemons.each do |pokemon|
         p = Pokemon.find_or_create_by!(pokemon)
         sp3.spin
       end
 
-      sp3.success
+      v_pokemons_to_type.each do |pokemon|
+        p = PokemonToType.find_or_create_by!(pokemon)
+        pok = Pokemon.find(pokemon[:pokemon_id])
+        pok.pokemon_to_type = p
+        pok.save!
+        sp4.spin
+      end
+
+      sp4.success
+
       
 		end
 		
