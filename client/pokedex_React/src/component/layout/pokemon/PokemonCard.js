@@ -54,14 +54,14 @@ export default class PokemonCard extends Component {
 
         return (
             <div className="col-md-3 col-sm-6 mb-5">
-                <Card className='card'>
+                <Card className='card '>
                         <h5 className="card-header">{this.state.pokemonIndex}</h5>
                         {this.state.imageLoading?(
                             <img src={pokebola} style={{width:'10em',height:'10em'}}
                              className="card-img  mx-auto "/>
                         ): null}
                            <Sprite 
-                           className="card-img -top rounded mx-auto mt-2"
+                           className="card-img -top rounded mx-auto mt-2 "
                            onLoad={()=> this.setState({imageLoading:false})}
                            onError={()=> this.setState({toManyRequests: true})}
                             src={this.state.imagemUrl}
