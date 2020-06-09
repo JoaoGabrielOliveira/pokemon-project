@@ -40,9 +40,12 @@
 .card{
   margin-top: 20px;
   
+  
+  
 }
 .card-header{
- background-color: rgba(252, 56, 21, 0.171);
+ background-color: rgba(199, 31, 2, 0.171);
+ 
 }
 
 .card-title{

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 
 
 
@@ -8,6 +9,7 @@ import pokebola from '../pokemon/pokeba.gif';
 const Sprite = styled.img
 `width: 10em;
  height: 10em;
+ display: none;
 
 `;
 const  Card= styled.div`
@@ -17,8 +19,12 @@ trasition:all 0.3s cubic-bezier(0.25,0.8,0.25,1);
     box-shadow: 10px 14px 28px pink ;
     cursor: pointer;
 }
+-moz-user-select: none;
+-website-user-select: none;
+user-select: none;
+-o-user-select: none;
 
-`
+`;
 
 export default class PokemonCard extends Component {
   
@@ -46,19 +52,13 @@ export default class PokemonCard extends Component {
         };
 
     render() {
-
-      
-        
-       
-        
-
         return (
             <div className="col-md-3 col-sm-6 mb-5">
+                <Link to={`pokemon/${this.state.pokemonIndex}`}>
                 <Card className='card '>
                         <h5 className="card-header">{this.state.pokemonIndex}</h5>
                         {this.state.imageLoading?(
-                            <img src={pokebola} style={{width:'10em',height:'10em'}}
-                             className="card-img  mx-auto "/>
+                            <img src={pokebola} style={{width:'10em',height:'10em'}} className="card-img  mx-auto "/>
                         ): null}
                            <Sprite 
                            className="card-img -top rounded mx-auto mt-2 "
@@ -84,8 +84,8 @@ export default class PokemonCard extends Component {
                                 </h6>
                         </div>
 
-                </Card>
-                
+                  </Card>
+                </Link>
             </div>
         )
     }
