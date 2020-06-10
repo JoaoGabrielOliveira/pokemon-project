@@ -16,8 +16,15 @@
 
         - Para construir API json com maior facilidade.
 
+    - Rack-cors
+    
+        - Permite configurara os acessos a API.
+        
+        - Configuração padrão na API []()
   
-  
+    - Rack Attack
+
+        - Protege a aplicação de ataques de negação de serviço etc
 
 # Getting Starded
 
