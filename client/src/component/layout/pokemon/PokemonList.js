@@ -7,7 +7,7 @@ import PokemonCard from './PokemonCard';
 export default class PokemonList extends Component {
 
     state={
-        url:'http://localhost:3001/api/v1/pokemon?limit=5',
+        url:'http://localhost:3001/api/v1/pokemon?order=id',
         pokemon: null
     };
 
@@ -23,7 +23,8 @@ export default class PokemonList extends Component {
                 (<div className="row">
                 {this.state.pokemon.map(pokemon => (
                     <PokemonCard
-                    key={pokemon.name}
+                    key={pokemon.id}
+                    id={pokemon.id}
                     name={pokemon.name}
                     avatar={pokemon.avatar}
                     cor={pokemon.cor}
