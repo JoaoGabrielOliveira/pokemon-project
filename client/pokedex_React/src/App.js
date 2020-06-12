@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
-import Home from './Home';
+//import Home from './Home';
 import NavBar from './component/layout/NavBar';
 import Dashboard from './component/layout/Dashboard';
 import Pokemon from './component/layout/pokemon/Pokemon';
+
 
 class App extends Component {
   render() {
@@ -23,7 +25,7 @@ class App extends Component {
             </Switch>
           </div>
         </div>
-      </Router>
+      </Router >
     );
   }
 }
