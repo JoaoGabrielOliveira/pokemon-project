@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
-import Home from './Home';
+
 import NavBar from './component/layout/NavBar';
+
+import Home from './component/layout/Home';
 import Dashboard from './component/layout/Dashboard';
 import Pokemon from './component/layout/pokemon/Pokemon';
 
 class App extends Component {
   render() {
     return ( 
-      <Router>
+      <BrowserRouter>
        
         <div className="App">
-          <NavBar />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Dashboard} />
+          <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/pokemons" component={Dashboard} />
               <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
             </Switch>
-          </div>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }

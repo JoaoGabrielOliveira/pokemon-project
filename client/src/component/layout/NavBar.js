@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-
-import styled from 'styled-components';
-//import Home from '/home/bionexo/projetoaprendizes/client/Pokedex/index.html';
-
+import {Link} from 'react-router-dom';
 
 export default class NavBar extends Component {
     render() {
@@ -17,7 +14,7 @@ export default class NavBar extends Component {
               </nav>
               <div className="menu">
                <div className="home">
-               <a href="#"><strong>Home</strong></a>
+               <Link to="/home"><strong>Home</strong></Link>
                 </div>
                 <div className="noticia">
                  <a href="#"> <strong>Noticia</strong></a>  
