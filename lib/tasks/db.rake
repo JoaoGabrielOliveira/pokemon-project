@@ -28,12 +28,13 @@ namespace :db do
         po = PokeApi.get(pokemon: esp)
 
         p = { id: po.order, name: po.name, weight: po.weight, height: po.height, avatar: po.sprites.front_default }
+
         ptot = nil
-        types = [PokemonType.find_by(name: po.types[0].type.name).id]
+
         if po.types[1] == nil
-          ptot = { pokemon_id: po.order, pokemon_type_1: types[0], pokemon_type_2:nil }
+          ptot = { pokemon_id: po.order, pokemon_type_1: PokemonType.find_by(name: po.types[0].type.name).id, pokemon_type_2:nil }
         else
-          ptot = { pokemon_id: po.order, pokemon_type_1:types[0], pokemon_type_2:PokemonType.find_by(name: po.types[1].type.name).id }
+          ptot = { pokemon_id: po.order, pokemon_type_1:PokemonType.find_by(name: po.types[0].type.name).id, pokemon_type_2:PokemonType.find_by(name: po.types[1].type.name).id }
         end
         
         v_pokemons.push(p)
@@ -51,8 +52,10 @@ namespace :db do
 
       v_pokemons_to_type.each do |pokemon|
         p = PokemonToType.find_or_create_by!(pokemon)
+
         pok = Pokemon.find(pokemon[:pokemon_id])
-        pok.pokemon_to_type = p
+
+        pok.pokemon_to_types = p.id
         pok.save!
         sp4.spin
       end

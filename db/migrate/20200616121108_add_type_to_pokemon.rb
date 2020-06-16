@@ -1,5 +1,5 @@
 class AddTypeToPokemon < ActiveRecord::Migration[6.0]
   def change
-    add_reference :pokemons, :pokemon_to_type, null: true, foreign_key: true
+    add_column :pokemons, :pokemon_to_type, :integer
   end
 end
