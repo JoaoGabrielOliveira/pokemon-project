@@ -28,9 +28,9 @@ export default class Home extends Component {
                     } width="800px" />
                     </div>
                     <nav className="menu">
-                      <a href="pokedex.html"><h5>Home</h5></a>
-                      <a href="pokedex.js"><h5>Pokédex</h5></a>
-                      <a href="noticias.html"><h5>Notícias</h5></a>
+                      <a href="/"><h5>Home</h5></a>
+                      <a href="/pokemons"><h5>Pokédex</h5></a>
+                      <a href="/noticias"><h5>Notícias</h5></a>
                     </nav>
                     <div className="frase">
                       <h1>Frase </h1>

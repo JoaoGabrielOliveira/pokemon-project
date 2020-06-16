@@ -16,6 +16,7 @@ export default class PokemonList extends Component {
         console.log(res.data.pokemons);
         this.setState({pokemon:res.data.pokemons});
     }
+    
     render() {
         return (
             <Fragment>
