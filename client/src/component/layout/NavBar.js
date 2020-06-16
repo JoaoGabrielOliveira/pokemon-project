@@ -17,7 +17,7 @@ export default class NavBar extends Component {
               </nav>
               <div className="menu">
                <div className="home">
-               <a href="#"><strong>Home</strong></a>
+               <a href="#"><strong>Iníco</strong></a>
                 </div>
                 <div className="noticia">
                  <a href="#"> <strong>Noticia</strong></a>  
