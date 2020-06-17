@@ -36,13 +36,8 @@ export default class PokemonCard extends Component {
         pokemonIndex:'',
         imageLoading: true,
         toManyRequests: false,
-<<<<<<< HEAD:client/pokedex_React/src/component/layout/pokemon/PokemonCard.js
-        themeColor: '#EF5350'
-        
-
-=======
+        themeColor: '#EF5350',
         avatar:''
->>>>>>> c4c8d9f944afac274b78620d5f8e955efd5fd047:client/src/component/layout/pokemon/PokemonCard.js
     };
 
     componentDidMount(){

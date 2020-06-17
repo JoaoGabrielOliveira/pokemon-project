@@ -6,6 +6,7 @@ class Api::V1::SearchController < ApplicationController
 
         elsif params[:filter] == 'type' || params[:filter] == 't'
             @queryTypes = PokemonType.where('name LIKE ?', "#{params[:q]}%")
+        end
             
         if params[:show] == 'pokemon' || params[:show] == 'p'
             @queryPokemons = Pokemon.order(:name).where('name LIKE ?', "#{params[:q]}%")

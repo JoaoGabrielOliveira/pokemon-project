@@ -5,13 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
-<<<<<<< HEAD
-
-=======
-//import Home from './Home';
->>>>>>> e6766309f0d469a677311fe886f5788ca810c544
 import NavBar from './component/layout/NavBar';
-
 import Home from './component/layout/Home';
 import Dashboard from './component/layout/Dashboard';
 import Pokemon from './component/layout/pokemon/Pokemon';
@@ -31,11 +25,7 @@ class App extends Component {
               <Route exact path="/pesquisa" component={pesquisa} />
             </Switch>
         </div>
-<<<<<<< HEAD
       </BrowserRouter>
-=======
-      </Router >
->>>>>>> e6766309f0d469a677311fe886f5788ca810c544
     );
   }
 }
