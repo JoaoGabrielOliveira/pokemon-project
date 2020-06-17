@@ -1,9 +1,9 @@
 class Api::V1::PokemonController < ApplicationController
     def index
         if params[:offset].to_i > 0
-            @pokemons = Pokemon.includes(:pokemon_to_type).drop(params[:offset].to_i) #.pluck(:id, :name, :)
+            @pokemons = Pokemon.all.drop(params[:offset].to_i) #.pluck(:id, :name, :)
         else 
-            @pokemons = Pokemon.includes(:pokemon_to_type)
+            @pokemons = Pokemon.all
         end
 
 
@@ -20,9 +20,15 @@ class Api::V1::PokemonController < ApplicationController
     def show
         begin
             @pokemon = Pokemon.find(params[:id])
-            @types = [ PokemonType.find(@pokemon.pokemon_to_type.pokemon_type_1)]
-            slot2 = PokemonType.find(@pokemon.pokemon_to_type.pokemon_type_2)
-            @types.push(slot2)
+
+            ptot = PokemonToType.find(@pokemon.pokemon_to_types)
+            
+            @types = [PokemonType.find(ptot.pokemon_type_1)]
+
+            unless ptot.pokemon_type_2.nil?
+                @types.push(PokemonType.find(ptot.pokemon_type_2))
+            end
+            
         rescue => exception
         end
     end

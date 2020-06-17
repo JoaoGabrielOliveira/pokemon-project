@@ -31,3 +31,4 @@ yarn-debug.log*
 # REACT
 
 /client/node_modules
+/client/pokedex_React/node_modules
