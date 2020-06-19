@@ -8,6 +8,7 @@ import Card from './components/layout/Card.jsx';
 import Img from './components/img';
 import Parametros from './components/Parametros';
 
+import Foto from './components/img/img1.jpg'
 
 export default (props) => (
 
@@ -15,7 +16,7 @@ export default (props) => (
   
 
     <Card color='#00BFFF'>
-        <Img />
+        <Img src={Foto} />
       <Parametros  Color='#00BFFF'titulo="Pokémon GO: como pegar Zekrom nas reides." /> 
       <Pri text="O segundo membro da Elite Lendária chega nesta terça-feira ao Pokémon GO. Zekrom estará nas reides de nível 5 ainda sem data definida para sair. A única informação passada pela Niantic é que o lendário será a estrela de três edições do jantar lendário nos dias 14, 24 e 1º de julho. O Pokémon Preto Intenso chega como melhor nome do tipo elétrico no Pokémon GO."  />
     </Card>

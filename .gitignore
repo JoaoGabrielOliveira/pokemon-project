@@ -29,5 +29,5 @@ yarn-debug.log*
 
 
 # REACT
-
+/Noticia/node_modules
 /client/node_modules
