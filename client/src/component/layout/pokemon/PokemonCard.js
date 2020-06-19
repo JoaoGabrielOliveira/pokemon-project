@@ -36,14 +36,8 @@ export default class PokemonCard extends Component {
         pokemonIndex:'',
         imageLoading: true,
         toManyRequests: false,
-<<<<<<< HEAD:client/pokedex_React/src/component/layout/pokemon/PokemonCard.js
         themeColor: '#EF5350'
-        
-
-=======
-        avatar:''
->>>>>>> c4c8d9f944afac274b78620d5f8e955efd5fd047:client/src/component/layout/pokemon/PokemonCard.js
-    };
+    }
 
     componentDidMount(){
           const {name, url}= this.props;
@@ -59,13 +53,13 @@ export default class PokemonCard extends Component {
     render() {
         return (
             <div className="col-md-3 col-sm-6 mb-5">
-                <Link to={`pokemon/${this.state.pokemonIndex}`}>
+                <Link to={`pokemon/${this.props.id}`}>
                 <Card className='card '
                 style={{
                     backgroundColor: `#${this.state.themeColor}`
                 }}
                 >
-                        <h5 className="card-header">{this.state.pokemonIndex}</h5>
+                        <h5 className="card-header">{this.props.id}</h5>
                         {this.state.imageLoading?(
                             <img src={pokebola} style={{width:'10em',height:'10em'}} className="card-img  mx-auto "/>
                         ): null}
