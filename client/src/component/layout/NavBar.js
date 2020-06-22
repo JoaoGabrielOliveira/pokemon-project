@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 export default class NavBar extends Component {
     render() {
+        let link = <a href="/"><strong>Iníco</strong></a>
+        
         return (
             <div>
                
@@ -17,10 +19,10 @@ export default class NavBar extends Component {
               </nav>
               <div className="menu">
                <div className="home">
-               <a href="#"><strong>Iníco</strong></a>
+               {link}
                 </div>
                 <div className="noticia">
-                 <a href="#"> <strong>Noticia</strong></a>  
+                 <a href="/noticias"> <strong>Noticia</strong></a>  
                 </div>
             </div>
       </div>
