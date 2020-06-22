@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 
-
-
 import styled from 'styled-components';
 import pokebola from '../pokemon/pokeba.gif';
 
@@ -36,8 +34,14 @@ export default class PokemonCard extends Component {
         pokemonIndex:'',
         imageLoading: true,
         toManyRequests: false,
+<<<<<<< HEAD
         themeColor: '#EF5350'
     }
+=======
+        themeColor: '#EF5350',
+        avatar:''
+    };
+>>>>>>> criando-pg-react
 
     componentDidMount(){
           const {name, url}= this.props;
@@ -47,6 +51,8 @@ export default class PokemonCard extends Component {
           this.setState({name,
                         imagemUrl,
                         pokemonIndex });
+
+            this.setState({themeColor:this.props.cor})
     
         };
 
@@ -56,7 +62,7 @@ export default class PokemonCard extends Component {
                 <Link to={`pokemon/${this.props.id}`}>
                 <Card className='card '
                 style={{
-                    backgroundColor: `#${this.state.themeColor}`
+                    backgroundColor: `#${this.props.themeColor}`
                 }}
                 >
                         <h5 className="card-header">{this.props.id}</h5>

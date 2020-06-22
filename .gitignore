@@ -31,5 +31,9 @@ yarn-debug.log*
 # REACT
 
 /client/node_modules
+<<<<<<< HEAD
 /client/pokemon_React
 /Noticia/node_modules
+=======
+/client/pokedex_React/node_modules
+>>>>>>> criando-pg-react

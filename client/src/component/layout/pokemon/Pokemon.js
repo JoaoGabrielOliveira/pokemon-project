@@ -371,7 +371,7 @@ const TYPE_COLORS = {
               </div>
               <hr />
               <div className="card-body">
-                <h5 class="card-title text-center">Perfil</h5>
+                <h5 className="card-title text-center">Perfil</h5>
                 <div className="row">
                   <div className="col-md-6">
                     <div className="row">
@@ -397,9 +397,9 @@ const TYPE_COLORS = {
                         <h6 className="float-right">Gênero:</h6>
                       </div>
                       <div className="col-6">
-                        <div class="progress">
+                        <div className="progress">
                           <div
-                            class="progress-bar"
+                            className="progress-bar"
                             role="progressbar"
                             style={{
                               width: `${this.state.genderRatioFemale}%`,
@@ -414,7 +414,7 @@ const TYPE_COLORS = {
                           </div>
                           
                           <div
-                            class="progress-bar"
+                            className="progress-bar"
                             role="progressbar"
                             style={{
                               width: `${this.state.genderRatioMale}%`,

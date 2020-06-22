@@ -16,6 +16,7 @@ export default class PokemonList extends Component {
         console.log(res.data.pokemons);
         this.setState({pokemon:res.data.pokemons});
     }
+    
     render() {
         return (
             <Fragment>
@@ -23,7 +24,11 @@ export default class PokemonList extends Component {
                 (<div className="row">
                 {this.state.pokemon.map(pokemon => (
                     <PokemonCard
+<<<<<<< HEAD
                     key={pokemon.name}
+=======
+                    key={pokemon.id}
+>>>>>>> criando-pg-react
                     id={pokemon.id}
                     name={pokemon.name}
                     avatar={pokemon.avatar}
