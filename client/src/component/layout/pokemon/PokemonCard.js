@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 
-
-
 import styled from 'styled-components';
 import pokebola from '../pokemon/pokeba.gif';
 
@@ -48,6 +46,8 @@ export default class PokemonCard extends Component {
           this.setState({name,
                         imagemUrl,
                         pokemonIndex });
+
+            this.setState({themeColor:this.props.cor})
     
         };
 
@@ -57,7 +57,7 @@ export default class PokemonCard extends Component {
                 <Link to={`pokemon/${this.state.pokemonIndex}`}>
                 <Card className='card '
                 style={{
-                    backgroundColor: `#${this.state.themeColor}`
+                    backgroundColor: `#${this.props.themeColor}`
                 }}
                 >
                         <h5 className="card-header">{this.state.pokemonIndex}</h5>
