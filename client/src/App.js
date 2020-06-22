@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
@@ -14,9 +13,15 @@ import pesquisa from './component/layout/pokemon/pesquisa'
 
 class App extends Component {
   render() {
+    let navbar;
+    if(window.location.pathname != '/')
+      {
+        navbar = <NavBar />
+      }
     return ( 
       <BrowserRouter>
-       
+      
+        {navbar}
         <div className="App">
           <Switch>
               <Route exact path="/" component={Home} />
