@@ -22,7 +22,7 @@ export default (props) => (
   
   
     <Card color='#40E0D0'>
-        <Img /> 
+        <Img src='components/img/img1.jpg' /> 
         <Parametros Color='#40E0D0' titulo="Pokémon GO: Mega Evolução é anunciada e chega ao jogo ainda em 2020" />
         <Pri text="De acordo com as informações divulgadas, o título será gratuito para iniciar (ou seja, provavelmente será necessário pagar para liberar elementos adicionais) e envolve servir as criaturas que chegam em seu café com drinques e pratos específicos. Preparar cada um deles envolve a resolução de um puzzle, sendo necessário arrastar o ícone de um pokémon para a mesma categoria à qual ele pertence." />
      
