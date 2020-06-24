@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_170921) do
   end
 
   create_table "pokemons", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.float "weight"
     t.float "height"
     t.string "avatar"
