@@ -34,7 +34,7 @@ export default class Pesquisa extends React.Component{
 
     render(){
         return (
-            <>
+            <div className='container'>
                 <a className="btn-floating btn-lg btn-default"><i className="fas fa-bolt"></i></a>
 
                 <input onChange={(e) => this.Pesquisar(e)} placeholder='Digite o nome do pokemon:'/>
@@ -53,7 +53,7 @@ export default class Pesquisa extends React.Component{
                     ))}
                 </div>):( <h1 style={{justifyContent:'center',alignItems:'center',display:'flex',minHeight:'80vh', textTransform:'uppercase'}}> Digite algo no campo de pesquisa</h1>)}
             </div>
-            </>
+            </div>
     )
     }
 }

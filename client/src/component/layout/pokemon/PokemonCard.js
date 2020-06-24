@@ -34,14 +34,9 @@ export default class PokemonCard extends Component {
         pokemonIndex:'',
         imageLoading: true,
         toManyRequests: false,
-<<<<<<< HEAD
-        themeColor: '#EF5350'
-    }
-=======
         themeColor: '#EF5350',
         avatar:''
     };
->>>>>>> criando-pg-react
 
     componentDidMount(){
           const {name, url}= this.props;

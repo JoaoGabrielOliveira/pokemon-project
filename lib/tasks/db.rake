@@ -55,7 +55,7 @@ namespace :db do
 
         pok = Pokemon.find(pokemon[:pokemon_id])
 
-        pok.pokemon_to_types = p.id
+        pok.pokemon_to_type_id = p.id
         pok.save!
         sp4.spin
       end
@@ -72,6 +72,7 @@ namespace :db do
       sp1 = spinners.register "[:spinner] Pegando Tipos da PokeAPI"
       sp2 = spinners.register "[:spinner] Populando array com Tipos da PokeAPI"
       sp3 = spinners.register "[:spinner] Inserindo no Banco de Dados os Tipos do array"
+      sp4 = spinners.register "[:spinner] Atualizando cores de cada Tipos"
 
       sp1.auto_spin
       unless PokemonType.any?
@@ -109,6 +110,56 @@ namespace :db do
       PokemonType.find_or_create_by!({id: type.id,name: type.name})
 
       sp3.success
+
+      sp4.auto_spin
+      `rails db:populate:types:color`
+      sp4.success
+
+    end
+
+    namespace :types do
+      desc "Alterar color dos PokemonType para suas respectivas cores"
+      task color: :environment do
+        #region
+        if PokemonType.any?
+          TYPE_COLORS = [
+            {name:"bug", color:'B1C12E'},
+            {name:"dragon", color:'755EDF'},
+            {name:"electric", color:'FCBC17'},
+            {name:"fairy", color:'F4B1F4'},
+            {name:"fighting", color:'823551D'},
+            {name:"fire", color:'E73B0C'},
+            {name:"flying", color:'A3B3F7'},
+            {name:"ghost", color:'6060B2'},
+            {name:"grass", color:'74C236'},
+            {name:"ground", color:'D3B357'},
+            {name:"ice", color:'A3E7FD'},
+            {name:"normal", color:'C8C4BC'},
+            {name:'poison', color:'934594'},
+            {name:"psychic", color:'ED4882'},
+            {name:"rock", color:'B9A156'},
+            {name:"steel", color:'B5B5C3'},
+            {name:"water", color:'3295F6'}
+          ]
+
+          TYPE_COLORS.each do |type|
+            poke = PokemonType.find_by(name: type[:name])
+            
+            if poke.nil?
+              puts 'Nulo'
+            end
+
+            poke.update_attribute(:color, type[:color])
+          end
+
+          puts '└── [*] Cores estão atualizadas com sucesso!'
+
+        else
+          puts '[*] PokemonType está vazia!'
+          puts '[*] Rode primeiro o comando | rails db:populate:types |'
+        end
+        #endregion
+      end 
     end
 
 	end

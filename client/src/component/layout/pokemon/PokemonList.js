@@ -24,11 +24,7 @@ export default class PokemonList extends Component {
                 (<div className="row">
                 {this.state.pokemon.map(pokemon => (
                     <PokemonCard
-<<<<<<< HEAD
-                    key={pokemon.name}
-=======
                     key={pokemon.id}
->>>>>>> criando-pg-react
                     id={pokemon.id}
                     name={pokemon.name}
                     avatar={pokemon.avatar}
