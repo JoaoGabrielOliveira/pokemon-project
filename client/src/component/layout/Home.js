@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import Body from './home/body'
-import Background from './home/background'
 import Esquerda from './home/esquerda.jpg'
 import Direita from './home/direita.jpg'
 import Esse from './home/esse.png'
 
+import './home/index.css'
 
 export default class Home extends Component {
     render() {
