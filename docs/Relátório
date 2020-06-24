@@ -13,3 +13,20 @@ Possivel Solução:
 
 Processo
     Criar uma task do Rails para pegar os Pokemons da API e transfirir para a tabela
+
+
+
+
+
+Ter, 23 de junho
+
+Objetivo Indireto: Criar uma task alterar color dos PokemonType para suas respectivas cores
+
+Objetivo Direto:
+    Criar uma costante de hash com as cores para cada PokemonType
+        Ex: TYPES_COLOR [{name: 'fire', color:'#ede'}, {}]
+    Pegar cada PokemonType
+        Laço deve resolver
+    Atualizar cada PokemonType
+
+Feito
