@@ -4,6 +4,27 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import pokebola from '../pokemon/pokeba.gif';
 
+const TYPE_COLORS = {
+    bug: 'B1C12E',
+    dark: '4F3A2D',
+    dragon: '755EDF',
+    electric: 'FCBC17',
+    fairy: 'F4B1F4',
+    fighting: '823551D',
+    fire: 'E73B0C',
+    flying: 'A3B3F7',
+    ghost: '6060B2',
+    grass: '74C236',
+    ground: 'D3B357',
+    ice: 'A3E7FD',
+    normal: 'C8C4BC',
+    poison: '934594',
+    psychic: 'ED4882',
+    rock: 'B9A156',
+    steel: 'B5B5C3',
+    water: '3295F6'
+  };
+
 const Sprite = styled.img
 `width: 10em;
  height: 10em;
@@ -50,6 +71,8 @@ export default class PokemonCard extends Component {
 
             this.setState({themeColor:this.props.cor})
     
+
+        
         };
 
     render() {
@@ -63,7 +86,9 @@ export default class PokemonCard extends Component {
                 >
                         <h5 className="card-header">{this.props.id}</h5>
                         {this.state.imageLoading?(
-                            <img src={pokebola} style={{width:'10em',height:'10em'}} className="card-img  mx-auto "/>
+                            <img src={pokebola} style={{width:'10em',height:'10em'
+                          }}
+                           className="card-img  mx-auto "/>
                         ): null}
                            <Sprite 
                            className="card-img -top rounded mx-auto mt-2 "
@@ -78,11 +103,11 @@ export default class PokemonCard extends Component {
                            />
 
                            {this.state.toManyRequests?(
-                           <h6 className="mx-auto">
+                           <h6 className="mx-auto" >
                                <span className="badge badge-danger mt-2">Loading</span>
                            </h6>): null}
                             <div className="card-body">
-                                <h6 className="card-title">
+                                <h6 className="card-title ">
                                     {this.state.name.toLocaleLowerCase().split('')
                                     .map(letter=> letter.charAt(0).toUpperCase()+letter.substring(1))
                                     .join('')}

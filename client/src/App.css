@@ -31,14 +31,14 @@
 
 }  
 .home{
- 
+  font-family: monospace;
   float: left;
   padding-left:50px;
  padding-top: -30px;
 }
 .noticia{
-  
-  padding-top: -30px;
+  font-family: monospace;
+  padding-top: 30px;
   float: right;
   padding-right: 40px;
 
