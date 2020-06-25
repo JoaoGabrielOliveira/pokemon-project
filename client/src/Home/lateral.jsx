@@ -1,5 +1,5 @@
 import React from 'react'
-import'/home/bionexo/projetoaprendizes/client/src/Home/homeconf.css';
+import'./homeconf.css';
 
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-import Logo from '/home/bionexo/projetoaprendizes/client/src/Home/img/Logo.jpg';
+import Logo from '../../Home/img/Logo.jpg';
 
 
 export default class NavBar extends Component {

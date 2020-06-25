@@ -1,5 +1,5 @@
 import React from 'react';
-import '/home/bionexo/projetoaprendizes/client/src/App.css';
+import '../App.css';
 import './homeconf.css'
 import Top from './topo.jsx';
 import TAP from'./lateral';

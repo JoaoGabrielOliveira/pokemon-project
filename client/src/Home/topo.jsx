@@ -2,8 +2,8 @@ import React from 'react';
 import Logo from './img/poke.jpg';
 import Pi from './img/316388154274211.png'
 //import '/home/bionexo/projetoaprendizes/client/src/Noticia/src/App.jsx'
-import '/home/bionexo/projetoaprendizes/client/src/Home/homeconf.css';
-let link = <a href="/client/src/App.js"><strong >Pokedex</strong></a>
+import './homeconf.css';
+let link = <a href="/pokemons"><strong >Pokedex</strong></a>
 let like = <a href="/client/src/Noticia/src/App.jsx"><strong >Noticia</strong></a>
 
 export default props =>
