@@ -6,6 +6,9 @@ import PokemonCard from './PokemonCard';
 
 export default class PokemonList extends Component {
 
+
+    
+
     state={
         url:'http://localhost:3001/api/v1/pokemon?order=id',
         pokemon: null
@@ -18,6 +21,15 @@ export default class PokemonList extends Component {
     }
     
     render() {
+        const styled = {
+            padding: "10px",
+            
+            display:"flex",
+            alignItems:"center",
+            justifyContent:"center",
+            minHeight:'50vh'
+          };
+
         return (
             <Fragment>
             {this.state.pokemon ?
@@ -31,7 +43,7 @@ export default class PokemonList extends Component {
                     cor={pokemon.cor}
                    />
                 ))}
-            </div>):(<h1>Loading</h1>)}
+            </div>):(<h1 style={styled}>Carregando lista...</h1>)}
             </Fragment>
         )
     }
