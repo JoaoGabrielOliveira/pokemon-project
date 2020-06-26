@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
+import Logo from '../../Home/img/Logo.jpg';
+
 
 export default class NavBar extends Component {
     render() {
@@ -10,7 +12,7 @@ export default class NavBar extends Component {
                
               <nav className="navbar">
                   <nav className="title">
-                      
+                  <img src={Logo} height='200px' />
                      <strong>Pokedex</strong> 
                   </nav>
               </nav>

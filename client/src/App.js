@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './App.css';
+import  './App.css';
 import NavBar from './component/layout/NavBar';
-import Home from './component/layout/Home';
+import Home from './Home/Home.jsx';
 import Dashboard from './component/layout/Dashboard';
 import Pokemon from './component/layout/pokemon/Pokemon';
-import pesquisa from './component/layout/pokemon/pesquisa'
+import Pesquisa from './component/layout/pokemon/pesquisa'
 
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/pokemons" component={Dashboard} />
               <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
-              <Route exact path="/pesquisa" component={pesquisa} />
+              <Route exact path="/pesquisa" component={Pesquisa} />
             </Switch>
         </div>
       </BrowserRouter>

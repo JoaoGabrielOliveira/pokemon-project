@@ -29,7 +29,5 @@ yarn-debug.log*
 
 
 # REACT
-
 /client/node_modules
-/client/pokemon_React
-/Noticia/node_modules
+/client/Noticia/node_modules
