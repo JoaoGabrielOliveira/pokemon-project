@@ -21,7 +21,7 @@ class Api::V1::PokemonController < ApplicationController
         begin
             @pokemon = Pokemon.find(params[:id])
 
-            ptot = PokemonToType.find(@pokemon.pokemon_to_types)
+            ptot = PokemonToType.find(@pokemon.pokemon_to_type_id)
             
             @types = [PokemonType.find(ptot.pokemon_type_1)]
 

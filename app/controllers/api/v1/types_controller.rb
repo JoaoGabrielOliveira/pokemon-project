@@ -2,6 +2,8 @@ class Api::V1::TypesController < ApplicationController
   def index
     if params[:offset].to_i > 0
         @types = PokemonType.all.drop(params[:offset].to_i)
+    elsif params[:color] == '1'
+        @types = PokemonType.all.map(& :color)
     else 
         @types = PokemonType.all
     end
@@ -11,7 +13,7 @@ class Api::V1::TypesController < ApplicationController
         @types = @types.take(params[:limit].to_i)
     end
 
-    if params[:order] != ''
+    if params[:order] != '' && params[:color] == ''
         @types = @types.sort_by {|e| e[params[:order]]}
     end
 

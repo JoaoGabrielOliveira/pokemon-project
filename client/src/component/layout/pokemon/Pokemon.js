@@ -52,13 +52,13 @@ const TYPE_COLORS = {
       // Urls do pokemon
       const pokemonSpeciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
       
-      const pokemonUrl = `http://localhost:3000/api/v1/pokemon/${pokemonIndex}/`;
+      const pokemonUrl = `http://localhost:3001/api/v1/pokemon/${pokemonIndex}/`;
   
       // pegar informações
       const pokemonRes = await Axios.get(pokemonUrl);
   
       const name = pokemonRes.data.name;
-      const imageUrl = pokemonRes.data.sprites.front_default;
+      const imageUrl = pokemonRes.data.avatar;
   
       // Conversor:)
       const height =
@@ -71,32 +71,6 @@ const TYPE_COLORS = {
       const types_color = pokemonRes.data.types.map(type => type.color);
   
       const themeColor = `${types_color[types[types.length - 1]]}`;
-  
-      const abilities = pokemonRes.data.abilities
-        .map(ability => {
-          return ability.ability.name
-            .toLowerCase()
-            .split('-')
-            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(' ');
-        })
-        .join(', ');
-  
-      const evs = pokemonRes.data.stats
-        .filter(stat => {
-          if (stat.effort > 0) {
-            return true;
-          }
-          return false;
-        })
-        .map(stat => {
-          return `${stat.effort} ${stat.stat.name
-            .toLowerCase()
-            .split('-')
-            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(' ')}`;
-        })
-        .join(', ');
   
       // pegar descrição do pokemon
       await Axios.get(pokemonSpeciesUrl).then(res => {
@@ -142,9 +116,7 @@ const TYPE_COLORS = {
         types,
         themeColor,
         height,
-        weight,
-        abilities,
-        evs
+        weight
       });
     }
     render() {
@@ -262,18 +234,6 @@ const TYPE_COLORS = {
                       </div>
                       <div className="col-6">
                         <h6 className="float-left">{this.state.eggGroups} </h6>
-                      </div>
-                      <div className="col-6">
-                        <h6 className="float-right">Abilidades:</h6>
-                      </div>
-                      <div className="col-6">
-                        <h6 className="float-left">{this.state.abilities}</h6>
-                      </div>
-                      <div className="col-6">
-                        <h6 className="float-right">EVs:</h6>
-                      </div>
-                      <div className="col-6">
-                        <h6 className="float-left">{this.state.evs}</h6>
                       </div>
                     </div>
                   </div>
