@@ -3,13 +3,15 @@ namespace :db do
     desc "Pegando Pokemons da API PokeAPI e adicionando a tabela Pokemon"
     task pokemon: :environment do
       
-      spinners = TTY::Spinner::Multi.new("Populando tabela Pokemons OBS: Isso pode demorar alguns segundos")
+      #Tempo médio de tempo para terminar de rodar essa task: 1min e 20seg
+      spinners = TTY::Spinner::Multi.new("Populando tabela Pokemons OBS: Isso pode demorar alguns minutos")
 
       sp1 = spinners.register "[:spinner] Pegando Pokemons da PokeAPI"
       sp2 = spinners.register "[:spinner] Populando array com Pokemons da PokeAPI"
       sp3 = spinners.register "[:spinner] Inserindo Pokemons à tabela Pokemons"
       sp4 = spinners.register "[:spinner] Inserindo os Tipos de Pokemons à tabela PokemonToTypes"
-      sp5 = spinners.register "[:spinner] Adicionando e Atualizando informações de Pokemons"
+      sp5 = spinners.register "[:spinner] Inserindo os Grupos de Ovos à tabela PokemonToEggGroups"
+      sp6 = spinners.register "[:spinner] Adicionando e Atualizando informações de Pokemons"
       sp1.auto_spin
       
       especies = PokeApi.get(generation: '1').pokemon_species.map(& :name)
@@ -26,9 +28,8 @@ namespace :db do
       
 
       especies.each do |esp|
-        
         po = PokeApi.get(pokemon: esp)
-        rate = PokeApi.get(pokemon_species: esp)
+        pokeinfo = PokeApi.get(pokemon_species: esp)
 
         p = { id: po.order, name: po.name, weight: po.weight, height: po.height, avatar: po.sprites.front_default }
 
@@ -39,10 +40,16 @@ namespace :db do
         else
           ptot = { pokemon_id: po.order, pokemon_type_1:PokemonType.find_by(name: po.types[0].type.name).id, pokemon_type_2:PokemonType.find_by(name: po.types[1].type.name).id }
         end
+
+        
+        info = []
+        pokeinfo.egg_groups.each do |egg|
+          info.push( { pokemon_id: po.order, egg_group_id: EggGroup.find_by(name: egg.name).id} )
+        end
         
         v_pokemons.push(p)
         v_pokemons_to_type.push(ptot)
-        v_add_info.push( { id:po.order ,capture_rate: rate.capture_rate, gender_rate: rate.gender_rate })
+        v_add_info.push( { id:po.order , rate:{capture_rate: pokeinfo.capture_rate, gender_rate: pokeinfo.gender_rate}, egg_group: info })
         sp2.spin
       end
 
@@ -67,12 +74,17 @@ namespace :db do
       sp4.success
 
       v_add_info.each do |info|
-        Pokemon.update(info[:id], capture_rate: info[:capture_rate], gender_rate: info[:gender_rate])
+        info[:egg_group].each do |pteg|
+          PokemonToEggGroup.find_or_create_by!(pteg)
+        end
         sp5.spin
+
+        Pokemon.update(info[:id], info[:rate])
+        sp6.spin
       end
 
       sp5.success
-      
+      sp6.success
 		end
 		
 		desc "Pegar todos os Tipos de Pokemon da PokeAPI e adicionar a tabela pokemon_types"
