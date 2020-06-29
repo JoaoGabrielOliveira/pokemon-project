@@ -65,9 +65,9 @@ namespace :db do
       
 		end
 		
-		desc "Pegar todos os Tipos de Pokemon da PokeAPI e adicionar a tabela Types"
+		desc "Pegar todos os Tipos de Pokemon da PokeAPI e adicionar a tabela pokemon_types"
 		task types: :environment do
-			spinners = TTY::Spinner::Multi.new("Populando tabela Pokemons OBS: Isso pode demorar alguns segundos")
+			spinners = TTY::Spinner::Multi.new("Populando tabela PokemonTypes")
 
       sp1 = spinners.register "[:spinner] Pegando Tipos da PokeAPI"
       sp2 = spinners.register "[:spinner] Populando array com Tipos da PokeAPI"
@@ -160,6 +160,26 @@ namespace :db do
         end
         #endregion
       end 
+    end
+
+    desc "Pegar todos os Tipos de Grupos de Ovos da PokeAPI e adicionar a tabela egg_groups"
+    task egg: :environment do
+      spinners = TTY::Spinner::Multi.new("Populando tabela EggGroups")
+
+      sp1 = spinners.register "[:spinner] Pegando Grupos de Ovos da PokeAPI"
+      sp2 = spinners.register "[:spinner] Adicionando a tabela egg_groups"
+
+      sp1.auto_spin
+      all_eggs = PokeApi.get(:egg_group).results
+      sp1.success
+
+      all_eggs.each do |egg|
+        var = EggGroup.find_or_create_by!(name: egg.name)
+        sp2.spin
+      end
+        sp2.success
+      spinners.success
+      puts '    Processo realizado com sucesso!'
     end
 
 	end
