@@ -9,6 +9,7 @@ namespace :db do
       sp2 = spinners.register "[:spinner] Populando array com Pokemons da PokeAPI"
       sp3 = spinners.register "[:spinner] Inserindo Pokemons à tabela Pokemons"
       sp4 = spinners.register "[:spinner] Inserindo os Tipos de Pokemons à tabela PokemonToTypes"
+      sp5 = spinners.register "[:spinner] Adicionando e Atualizando informações de Pokemons"
       sp1.auto_spin
       
       especies = PokeApi.get(generation: '1').pokemon_species.map(& :name)
@@ -16,6 +17,7 @@ namespace :db do
 
       v_pokemons = []
       v_pokemons_to_type = []
+      v_add_info = []
 
       if PokemonType.any? 
         %w(rails db:populate:types)
@@ -26,6 +28,7 @@ namespace :db do
       especies.each do |esp|
         
         po = PokeApi.get(pokemon: esp)
+        rate = PokeApi.get(pokemon_species: esp)
 
         p = { id: po.order, name: po.name, weight: po.weight, height: po.height, avatar: po.sprites.front_default }
 
@@ -39,7 +42,7 @@ namespace :db do
         
         v_pokemons.push(p)
         v_pokemons_to_type.push(ptot)
-        
+        v_add_info.push( { id:po.order ,capture_rate: rate.capture_rate, gender_rate: rate.gender_rate })
         sp2.spin
       end
 
@@ -49,6 +52,7 @@ namespace :db do
         p = Pokemon.find_or_create_by!(pokemon)
         sp3.spin
       end
+        sp3.success
 
       v_pokemons_to_type.each do |pokemon|
         p = PokemonToType.find_or_create_by!(pokemon)
@@ -62,6 +66,12 @@ namespace :db do
 
       sp4.success
 
+      v_add_info.each do |info|
+        Pokemon.update(info[:id], capture_rate: info[:capture_rate], gender_rate: info[:gender_rate])
+        sp5.spin
+      end
+
+      sp5.success
       
 		end
 		
