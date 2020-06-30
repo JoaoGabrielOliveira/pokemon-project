@@ -35,7 +35,6 @@ class Api::V1::PokemonController < ApplicationController
                  @egg_group.push(egg.egg_group) 
             end
             
-            
         rescue => exception
         end
     end
