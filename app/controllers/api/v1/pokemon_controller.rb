@@ -28,6 +28,13 @@ class Api::V1::PokemonController < ApplicationController
             unless ptot.pokemon_type_2.nil?
                 @types.push(PokemonType.find(ptot.pokemon_type_2))
             end
+
+            @egg_group = []
+            group = PokemonToEggGroup.where("pokemon_id = #{@pokemon.id}")
+            group.each do |egg|
+                 @egg_group.push(egg.egg_group) 
+            end
+            
             
         rescue => exception
         end
