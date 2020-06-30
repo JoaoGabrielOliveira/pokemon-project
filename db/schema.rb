@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_205026) do
+ActiveRecord::Schema.define(version: 2020_06_30_115544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_205026) do
     t.integer "pokemon_to_type"
     t.float "capture_rate"
     t.float "gender_rate"
+    t.integer "hatch_counter"
     t.index ["pokemon_to_type_id"], name: "index_pokemons_on_pokemon_to_type_id"
   end
 

@@ -1,4 +1,15 @@
 namespace :db do
+
+  desc "Resetando banco de dados, criando um novo e fazendo as migrações"
+  task setup: :environment do
+    
+  end
+
+  desc "Realizando todas as Task para popular Pokemon, PokemonTypes e EggGroups"
+  task populate: :environment do [:types, :egg, :pokemon]
+
+  end
+
   namespace :populate do
     desc "Pegando Pokemons da API PokeAPI e adicionando a tabela Pokemon"
     task pokemon: :environment do
@@ -49,7 +60,7 @@ namespace :db do
         
         v_pokemons.push(p)
         v_pokemons_to_type.push(ptot)
-        v_add_info.push( { id:po.order , rate:{capture_rate: pokeinfo.capture_rate, gender_rate: pokeinfo.gender_rate}, egg_group: info })
+        v_add_info.push( { id:po.order , rate:{capture_rate: pokeinfo.capture_rate, gender_rate: pokeinfo.gender_rate, hatch_counter: pokeinfo.hatch_counter}, egg_group: info })
         sp2.spin
       end
 
