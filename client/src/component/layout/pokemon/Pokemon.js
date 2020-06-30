@@ -31,7 +31,6 @@ const TYPE_COLORS = {
       pokemonIndex: '',
       imageUrl: '',
       types: [],
-      description: '',
       statTitleWidth: 3,
       statBarWidth: 9,
       height: '',
@@ -50,13 +49,12 @@ const TYPE_COLORS = {
       const { pokemonIndex } = this.props.match.params;
   
       // Urls do pokemon
-      const pokemonSpeciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
-      
       const pokemonUrl = `http://localhost:3001/api/v1/pokemon/${pokemonIndex}/`;
   
       // pegar informações
       const pokemonRes = await Axios.get(pokemonUrl);
   
+      if (pokemonRes.data.msg !== 'ID não encontrado') {
       const name = pokemonRes.data.name;
       const imageUrl = pokemonRes.data.avatar;
   
@@ -73,21 +71,14 @@ const TYPE_COLORS = {
       const themeColor = `${types_color[types[types.length - 1]]}`;
   
       // pegar descrição do pokemon
-      await Axios.get(pokemonSpeciesUrl).then(res => {
-        let description = 'pt-br';
-        res.data.flavor_text_entries.some(flavor => {
-          if (flavor.language.name === 'pt-br') {
-            description = flavor.flavor_text;
-            return;
-          }
-        });
-        const femaleRate = res.data['gender_rate'];
+
+        let femaleRate = pokemonRes.data.gender_rate;
         const genderRatioFemale = 12.5 * femaleRate;
         const genderRatioMale = 12.5 * (8 - femaleRate);
   
-        const catchRate = Math.round((100 / 255) * res.data['capture_rate']);
+        const catchRate = Math.round((100 / 255) * pokemonRes.data.capture_rate);
   
-        const eggGroups = res.data['egg_groups']
+        const eggGroups = pokemonRes.data.egg_group
           .map(group => {
             return group.name
               .toLowerCase()
@@ -97,17 +88,15 @@ const TYPE_COLORS = {
           })
           .join(', ');
   
-        const hatchSteps = 255 * (res.data['hatch_counter'] + 1);
+        const hatchSteps = 255 * (pokemonRes.data.hatch_counter + 1);
   
         this.setState({
-          description,
           genderRatioFemale,
           genderRatioMale,
           catchRate,
           eggGroups,
           hatchSteps
         });
-      });
   
       this.setState({
         imageUrl,
@@ -119,8 +108,15 @@ const TYPE_COLORS = {
         weight
       });
     }
+    else
+    {
+      const msg = <div style={{justifyContent:'center',alignItems:'center',display:'flex',minHeight:'35vh',marginLeft:'5%', textTransform:'uppercase', fontSize:'200%'}}>O ID desse Pokemon no consta no Banco de Dados</div>
+      this.setState({msg})
+    }
+    }
     render() {
         return  (
+          <>
             <div className="col">
             <div className="card">
               <div className="card-header">
@@ -247,7 +243,8 @@ const TYPE_COLORS = {
                   </div>
                 </div>
               </div>
-              
+              {this.state.msg}
+          </>  
         );
     };
 

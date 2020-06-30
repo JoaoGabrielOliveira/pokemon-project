@@ -1,14 +1,28 @@
 namespace :db do
+
+  desc "Resetando banco de dados, criando um novo e fazendo as migrações"
+  task setup: :environment do
+    
+  end
+
+  desc "Realizando todas as Task para popular Pokemon, PokemonTypes e EggGroups"
+  task populate: :environment do [:types, :egg, :pokemon]
+
+  end
+
   namespace :populate do
     desc "Pegando Pokemons da API PokeAPI e adicionando a tabela Pokemon"
     task pokemon: :environment do
       
-      spinners = TTY::Spinner::Multi.new("Populando tabela Pokemons OBS: Isso pode demorar alguns segundos")
+      #Tempo médio de tempo para terminar de rodar essa task: 1min e 20seg
+      spinners = TTY::Spinner::Multi.new("Populando tabela Pokemons OBS: Isso pode demorar alguns minutos")
 
       sp1 = spinners.register "[:spinner] Pegando Pokemons da PokeAPI"
       sp2 = spinners.register "[:spinner] Populando array com Pokemons da PokeAPI"
       sp3 = spinners.register "[:spinner] Inserindo Pokemons à tabela Pokemons"
       sp4 = spinners.register "[:spinner] Inserindo os Tipos de Pokemons à tabela PokemonToTypes"
+      sp5 = spinners.register "[:spinner] Inserindo os Grupos de Ovos à tabela PokemonToEggGroups"
+      sp6 = spinners.register "[:spinner] Adicionando e Atualizando informações de Pokemons"
       sp1.auto_spin
       
       especies = PokeApi.get(generation: '1').pokemon_species.map(& :name)
@@ -16,6 +30,7 @@ namespace :db do
 
       v_pokemons = []
       v_pokemons_to_type = []
+      v_add_info = []
 
       if PokemonType.any? 
         %w(rails db:populate:types)
@@ -24,8 +39,8 @@ namespace :db do
       
 
       especies.each do |esp|
-        
         po = PokeApi.get(pokemon: esp)
+        pokeinfo = PokeApi.get(pokemon_species: esp)
 
         p = { id: po.order, name: po.name, weight: po.weight, height: po.height, avatar: po.sprites.front_default }
 
@@ -36,10 +51,16 @@ namespace :db do
         else
           ptot = { pokemon_id: po.order, pokemon_type_1:PokemonType.find_by(name: po.types[0].type.name).id, pokemon_type_2:PokemonType.find_by(name: po.types[1].type.name).id }
         end
+
+        
+        info = []
+        pokeinfo.egg_groups.each do |egg|
+          info.push( { pokemon_id: po.order, egg_group_id: EggGroup.find_by(name: egg.name).id} )
+        end
         
         v_pokemons.push(p)
         v_pokemons_to_type.push(ptot)
-        
+        v_add_info.push( { id:po.order , rate:{capture_rate: pokeinfo.capture_rate, gender_rate: pokeinfo.gender_rate, hatch_counter: pokeinfo.hatch_counter}, egg_group: info })
         sp2.spin
       end
 
@@ -49,6 +70,7 @@ namespace :db do
         p = Pokemon.find_or_create_by!(pokemon)
         sp3.spin
       end
+        sp3.success
 
       v_pokemons_to_type.each do |pokemon|
         p = PokemonToType.find_or_create_by!(pokemon)
@@ -62,12 +84,23 @@ namespace :db do
 
       sp4.success
 
-      
+      v_add_info.each do |info|
+        info[:egg_group].each do |pteg|
+          PokemonToEggGroup.find_or_create_by!(pteg)
+        end
+        sp5.spin
+
+        Pokemon.update(info[:id], info[:rate])
+        sp6.spin
+      end
+
+      sp5.success
+      sp6.success
 		end
 		
-		desc "Pegar todos os Tipos de Pokemon da PokeAPI e adicionar a tabela Types"
+		desc "Pegar todos os Tipos de Pokemon da PokeAPI e adicionar a tabela pokemon_types"
 		task types: :environment do
-			spinners = TTY::Spinner::Multi.new("Populando tabela Pokemons OBS: Isso pode demorar alguns segundos")
+			spinners = TTY::Spinner::Multi.new("Populando tabela PokemonTypes")
 
       sp1 = spinners.register "[:spinner] Pegando Tipos da PokeAPI"
       sp2 = spinners.register "[:spinner] Populando array com Tipos da PokeAPI"
@@ -160,6 +193,26 @@ namespace :db do
         end
         #endregion
       end 
+    end
+
+    desc "Pegar todos os Tipos de Grupos de Ovos da PokeAPI e adicionar a tabela egg_groups"
+    task egg: :environment do
+      spinners = TTY::Spinner::Multi.new("Populando tabela EggGroups")
+
+      sp1 = spinners.register "[:spinner] Pegando Grupos de Ovos da PokeAPI"
+      sp2 = spinners.register "[:spinner] Adicionando a tabela egg_groups"
+
+      sp1.auto_spin
+      all_eggs = PokeApi.get(:egg_group).results
+      sp1.success
+
+      all_eggs.each do |egg|
+        var = EggGroup.find_or_create_by!(name: egg.name)
+        sp2.spin
+      end
+        sp2.success
+      spinners.success
+      puts '    Processo realizado com sucesso!'
     end
 
 	end
