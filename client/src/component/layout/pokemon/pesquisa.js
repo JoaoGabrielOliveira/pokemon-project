@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
-import PokemonCard from './PokemonCard'
+import './index.css'
+
+import Chip from '../outros/chip'
 
 export default class Pesquisa extends React.Component{
 
@@ -33,25 +35,16 @@ export default class Pesquisa extends React.Component{
 
     render(){
         return (
-            <div className='container'>
-                <a className="btn-floating btn-lg btn-default"><i className="fas fa-bolt"></i></a>
+            <div id='Pesquisa'>
+                <div className="float">
+                        <div className='my-float'> <i class="material-icons">search</i> </div>
+                </div>
 
-                <input onChange={(e) => this.Pesquisar(e)} placeholder='Digite o nome do pokemon:'/>
- 
-                <div id='pokemon-list'>
-                    {this.state.pokemon ?
-                    (<div className="row">
-                    {this.state.pokemon.map(pokemon => (
-                        <PokemonCard
-                        key={pokemon.id}
-                        id={pokemon.id}
-                        name={pokemon.name}
-                        avatar={pokemon.avatar}
-                        cor={pokemon.cor}
-                    />
-                    ))}
-                </div>):( <h1 style={{justifyContent:'center',alignItems:'center',display:'flex',minHeight:'80vh', textTransform:'uppercase'}}> Digite algo no campo de pesquisa</h1>)}
-            </div>
+                <div className='search-box'>
+                    <input class="form-control" onChange={(e) => this.Pesquisar(e)} placeholder='Digite o nome do pokemon:' />
+                    <a href='#'> [Mais opções] </a>
+                    < hr/>
+                </div>
             </div>
     )
     }

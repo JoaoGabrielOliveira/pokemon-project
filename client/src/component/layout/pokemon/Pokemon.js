@@ -54,7 +54,8 @@ const TYPE_COLORS = {
       // pegar informações
       const pokemonRes = await Axios.get(pokemonUrl);
   
-      if (pokemonRes.data.msg !== 'ID não encontrado') {
+      if (pokemonRes.data.msg !== 'ID não encontrado')
+      {
       const name = pokemonRes.data.name;
       const imageUrl = pokemonRes.data.avatar;
   
