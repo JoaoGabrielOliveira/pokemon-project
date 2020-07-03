@@ -1,10 +1,13 @@
 #Pesquisa {
    position: fixed;
 
+   left: -100%;
+
    height: 40vh;
    width: 25%;
 
    margin-top: 1.5%;
+   transition: left 1s;
 }
 
 #Pesquisa .search-box {
@@ -20,8 +23,8 @@
 
 #pokemonlist
 {
-   margin-left: 17%;
-   transition: margin-left 4s;
+   margin-left: -2%;
+   transition: margin-left 1s;
 }
 
 

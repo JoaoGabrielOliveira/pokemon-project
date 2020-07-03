@@ -1,23 +1,55 @@
 import React, { Component, Fragment } from 'react';
 
-import axios from 'axios';
-
 import PokemonCard from './PokemonCard';
+import Pesquisa from './pesquisa';
+
+import API from '../../service/API';
+import axios from 'axios';
 
 export default class PokemonList extends Component {
 
     state={
         url:'http://localhost:3001/api/v1/pokemon?order=id',
-        pokemon: null
-    };
+        pokemon:null,
+        pesquisa:false
+    }
 
-    async componentDidMount(){
-        const res = await axios.get(this.state.url)
+    async Pesquisar(event)
+    {
+        await API.SeachPokemon(event);
+        this.setState({pokemon:API.Pokemons});
+    }
+    
+    async componentDidMount()
+    {
+        const res = await axios.get(this.state.url);
         console.log(res.data.pokemons);
         this.setState({pokemon:res.data.pokemons});
     }
+
+    async btnChange()
+    {
+        if(this.state.pesquisa)
+        {
+            document.getElementById('Pesquisa').style.left = '-100%';
+            document.getElementById('pokemonlist').style.marginLeft = '-3%';
+            this.setState({pesquisa:false});
+
+            await API.getAllPokemons('order=id');
+            this.setState({pokemon:API.Pokemons});
+        }
+
+        else
+        {
+            document.getElementById('Pesquisa').style.left = '2%';
+            document.getElementById('pokemonlist').style.marginLeft = '17%';
+            this.setState({pesquisa:true});
+        }
+    }
+
     
     render() {
+
         const styled = {
             padding: "10px",
             
@@ -29,6 +61,19 @@ export default class PokemonList extends Component {
 
         return (
             <Fragment>
+            <div id='Pesquisa'>
+                <div className="float">
+                        <div className='my-float' onClick={() => this.btnChange()}> <i className="material-icons">search</i> </div>
+                </div>
+
+                <div className='search-box'>
+                    <input className="form-control" onChange={(e) => this.Pesquisar(e) } placeholder='Digite o nome do pokemon:' />
+                    <a href='#'> [Mais opções] </a>
+                    < hr/>
+                </div>
+            </div>
+                
+                
             {this.state.pokemon ?
                 (<div className="row">
                 {this.state.pokemon.map(pokemon => (
