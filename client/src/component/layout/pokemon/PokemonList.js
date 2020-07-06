@@ -5,7 +5,6 @@ import Chip from '../outros/chip';
 import './PokemonList.css';
 
 import API from '../../service/API';
-import axios from 'axios';
 
 export default class PokemonList extends Component {
 
@@ -81,7 +80,7 @@ export default class PokemonList extends Component {
                 <div className='search-box'>
                     <input className="form-control" onChange={(e) => this.Pesquisar(e) } placeholder='Digite o nome do pokemon:' />
                     
-                    <a class="a" href="#" role="button">
+                    <a href="#" role="button">
                         [Mais opções]                        
                     </a>
 
@@ -89,10 +88,8 @@ export default class PokemonList extends Component {
 
                     <div id="moreOptions">
                         <div className='.flex-list'>
-                            <Chip name='Fire' color='000' func={this.AddOption} />
-                            <Chip name='Water' color='ff0' func={this.AddOption} />
-                            <Chip name='Another' color='0f0' func={this.AddOption} />
-                            <Chip name='Aqunatidade' color='0f0' func={this.AddOption} />
+                            <Chip name='Eletric' color='FCBC17' func={this.AddOption} />
+                            <Chip name='Aqunatidade' color='fa8072' func={this.AddOption} />
                         </div>
                     </div>
 
