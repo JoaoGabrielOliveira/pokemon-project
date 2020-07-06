@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
 import PokemonCard from './PokemonCard';
-import Pesquisa from './pesquisa';
+import Chip from '../outros/chip';
+import './PokemonList.css';
 
 import API from '../../service/API';
 import axios from 'axios';
@@ -11,6 +12,7 @@ export default class PokemonList extends Component {
     state={
         url:'http://localhost:3001/api/v1/pokemon?order=id',
         pokemon:null,
+        //types:null,
         pesquisa:false
     }
 
@@ -22,9 +24,10 @@ export default class PokemonList extends Component {
     
     async componentDidMount()
     {
-        const res = await axios.get(this.state.url);
-        console.log(res.data.pokemons);
-        this.setState({pokemon:res.data.pokemons});
+        const res = await API.getAllPokemons('order=id');
+        //const pokemontypes = API.getAllPokemonType();
+        this.setState({pokemon:res});
+        //this.setState({types:pokemontypes});
     }
 
     async btnChange()
@@ -47,6 +50,15 @@ export default class PokemonList extends Component {
         }
     }
 
+    collapeseOptions()
+    {
+
+    }
+
+    AddOption()
+    {
+        alert('Fogo');
+    }
     
     render() {
 
@@ -57,7 +69,7 @@ export default class PokemonList extends Component {
             alignItems:"center",
             justifyContent:"center",
             minHeight:'50vh'
-          };
+          };   
 
         return (
             <Fragment>
@@ -68,9 +80,26 @@ export default class PokemonList extends Component {
 
                 <div className='search-box'>
                     <input className="form-control" onChange={(e) => this.Pesquisar(e) } placeholder='Digite o nome do pokemon:' />
-                    <a href='#'> [Mais opções] </a>
+                    
+                    <a class="a" href="#" role="button">
+                        [Mais opções]                        
+                    </a>
+
                     < hr/>
+
+                    <div id="moreOptions">
+                        <div className='.flex-list'>
+                            <Chip name='Fire' color='000' func={this.AddOption} />
+                            <Chip name='Water' color='ff0' func={this.AddOption} />
+                            <Chip name='Another' color='0f0' func={this.AddOption} />
+                            <Chip name='Aqunatidade' color='0f0' func={this.AddOption} />
+                        </div>
+                    </div>
+
+                    <hr />
                 </div>
+
+                
             </div>
                 
                 
@@ -90,3 +119,4 @@ export default class PokemonList extends Component {
         )
     }
 }
+
