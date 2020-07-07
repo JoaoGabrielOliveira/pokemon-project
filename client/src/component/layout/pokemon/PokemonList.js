@@ -11,7 +11,7 @@ export default class PokemonList extends Component {
     state={
         url:'http://localhost:3001/api/v1/pokemon?order=id',
         pokemon:null,
-        //types:null,
+        types:null,
         pesquisa:false
     }
 
@@ -24,9 +24,10 @@ export default class PokemonList extends Component {
     async componentDidMount()
     {
         const res = await API.getAllPokemons('order=id');
-        //const pokemontypes = API.getAllPokemonType();
+        const pokemontypes = await API.getAllPokemonType();
+
         this.setState({pokemon:res});
-        //this.setState({types:pokemontypes});
+        this.setState({types:pokemontypes});
     }
 
     async btnChange()
@@ -88,8 +89,16 @@ export default class PokemonList extends Component {
 
                     <div id="moreOptions">
                         <div className='.flex-list'>
-                            <Chip name='Eletric' color='FCBC17' func={this.AddOption} />
-                            <Chip name='Aqunatidade' color='fa8072' func={this.AddOption} />
+                            {this.state.types ?
+                            (
+                                this.state.types.map(type => (
+                                    <Chip name={type.name} color={type.color} func={this.AddOption} />
+                                ))
+                            )
+                            :
+                            (
+                                <h1>Não há nada</h1>
+                            )}
                         </div>
                     </div>
 

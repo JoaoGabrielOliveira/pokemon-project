@@ -111,7 +111,10 @@ const TYPE_COLORS = {
     }
     else
     {
-      const msg = <div style={{justifyContent:'center',alignItems:'center',display:'flex',minHeight:'35vh',marginLeft:'5%', textTransform:'uppercase', fontSize:'200%'}}>O ID desse Pokemon no consta no Banco de Dados</div>
+      const msg = <div style={
+        {justifyContent:'center',alignItems:'center',display:'flex',minHeight:'35vh',marginLeft:'5%', textTransform:'uppercase', fontSize:'200%'}}>
+          O ID desse Pokemon no consta no Banco de Dados
+      </div>
       this.setState({msg})
     }
     }

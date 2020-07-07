@@ -54,7 +54,7 @@ export default class API {
     
     static async getAllPokemonType(options = '')
     {
-        const res = await Axios.get(this.URL + '/type' + '?' + options)
+        const res = await Axios.get(this.URL + '/types' + '?' + options)
         
         console.log(res.data.types);
         return(res.data.types);
@@ -62,7 +62,7 @@ export default class API {
 
     static async getPokemonType(id)
     {
-        const res = await Axios.get(this.URL + '/type/' + id)
+        const res = await Axios.get(this.URL + '/types/' + id)
 
         console.log(res.data.type);
         return(res.data.type);

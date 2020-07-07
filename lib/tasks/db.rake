@@ -160,7 +160,7 @@ namespace :db do
             {name:"dragon", color:'755EDF'},
             {name:"electric", color:'FCBC17'},
             {name:"fairy", color:'F4B1F4'},
-            {name:"fighting", color:'823551D'},
+            {name:"fighting", color:'82351D'},
             {name:"fire", color:'E73B0C'},
             {name:"flying", color:'A3B3F7'},
             {name:"ghost", color:'6060B2'},
