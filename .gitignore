@@ -30,4 +30,4 @@ yarn-debug.log*
 
 # REACT
 /client/node_modules
-/client/Noticia/node_modules
+/client/src/Noticia/node_modules
