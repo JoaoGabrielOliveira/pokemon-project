@@ -1,7 +1,24 @@
-body{
-    font-family: Oswald;
-    font-weight: 300;
-    font-size: 1.4rem;
-    color: black;
-    text-align: center;
+.App{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding: 90px;
 }
+span{
+    display: flex;
+    padding-top: 10px;
+   
+}
+.divisorG{
+    margin-left: 730px;
+    font-size: 40px;
+    font-family: fantasy;
+    
+}
+.divisor{
+    font-family: fantasy;
+    margin-left: 630px;
+    font-size: 40px;
+}
+
+  

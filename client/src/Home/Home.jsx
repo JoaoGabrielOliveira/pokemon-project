@@ -1,15 +1,16 @@
 import React from 'react';
 import '../App.css';
-import './homeconf.css'
-import Top from './topo.jsx';
-import TAP from'./lateral';
+import './Home.css'
+import Menu from './topo.jsx';
+import Pokedex from'./lateral';
 
 export default props =>
 <div className="App" >
     
    <div >
-    <h1>   <Top /></h1>  
-    <div ><TAP /></div> 
+   
+    <h1>   <Menu/></h1> 
+    <div ><Pokedex/></div> 
 
     </div>   
  
