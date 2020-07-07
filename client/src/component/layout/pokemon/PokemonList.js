@@ -12,6 +12,7 @@ export default class PokemonList extends Component {
         url:'http://localhost:3001/api/v1/pokemon?order=id',
         pokemon:null,
         types:null,
+        seletedTypes:[],
         pesquisa:false
     }
 
@@ -24,7 +25,7 @@ export default class PokemonList extends Component {
     async componentDidMount()
     {
         const res = await API.getAllPokemons('order=id');
-        const pokemontypes = await API.getAllPokemonType();
+        const pokemontypes = await API.getAllPokemonType('order=name');
 
         this.setState({pokemon:res});
         this.setState({types:pokemontypes});
@@ -55,16 +56,35 @@ export default class PokemonList extends Component {
 
     }
 
-    AddOption()
+    AddOption(type, index)
     {
-        alert('Fogo');
+        let AllTypesSeleted = this.state.seletedTypes;
+        let AllTypes = this.state.types;
+
+        AllTypesSeleted.push(type);
+        AllTypes.splice(index,1);
+
+        this.setState({seletedTypes:AllTypesSeleted});
+        this.setState({types:AllTypes});
+    }
+
+    RemoveOption(index)
+    {
+        let AllTypesSeleted = this.state.seletedTypes;
+        let AllTypes = this.state.types;
+
+        AllTypes.push(AllTypesSeleted[index]);
+        AllTypes = AllTypes.sort();
+        AllTypesSeleted.splice(index, 1);
+
+        this.setState({seletedTypes:AllTypesSeleted});
+        this.setState({types:AllTypes});
     }
     
     render() {
 
         const styled = {
             padding: "10px",
-            
             display:"flex",
             alignItems:"center",
             justifyContent:"center",
@@ -82,27 +102,39 @@ export default class PokemonList extends Component {
                     <input className="form-control" onChange={(e) => this.Pesquisar(e) } placeholder='Digite o nome do pokemon:' />
                     
                     <a href="#" role="button">
-                        [Mais opções]                        
+                        [Mais opções]
                     </a>
 
                     < hr/>
 
                     <div id="moreOptions">
+                        {this.state.seletedTypes.length > 0 &&
+                            (
+                                this.state.seletedTypes.map((type,index) => (
+                                    <Chip key={type.id} id={type.id} name={type.name} color={type.color}>
+                                        <span className="closebtn" onClick={(e) => this.RemoveOption(index)}>&times;</span>
+                                    </Chip>
+                                ))
+                            )
+
+                        }
+                        <p>Selecionar <b>Tipo de Pokemon</b>:</p>
                         <div className='.flex-list'>
                             {this.state.types ?
                             (
-                                this.state.types.map(type => (
-                                    <Chip name={type.name} color={type.color} func={this.AddOption} />
+                                this.state.types.map((type,index) => (
+                                    <span key={type.id} onClick={(e) => this.AddOption(type, index)} >
+                                        <Chip id={type.id} name={type.name} color={type.color} />
+                                    </span>
                                 ))
                             )
                             :
                             (
                                 <h1>Não há nada</h1>
                             )}
+                            <hr />
                         </div>
                     </div>
-
-                    <hr />
                 </div>
 
                 

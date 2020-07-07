@@ -24,8 +24,8 @@
     cursor: pointer;
 
     border: 1px solid;
-    border-color: #fa8072;
-    color: salmon;
+    border-color: #0c0c0c;
+    color: #0c0c0c;
 
     transition: 0.3s all;
     &:hover
@@ -33,3 +33,22 @@
         color:white;
     }
 }
+
+.closebtn {
+    background: transparent;
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    &:hover
+    {
+        color: #000;
+    }
+  }

@@ -22,13 +22,14 @@ const Chip = (props) => {
         color:'#' + props.color
     };
 
-    return(
-    <div className="chip" onClick={props.func} style={CommonState}
+    let chip = <div className="chip" onClick={props.func} style={CommonState}
     onMouseEnter={(e) => ChangeColors(e,props.color)}
     onMouseLeave={(e) => OutMouse(e,props.color) } >
         {props.name}
-    </div>
-    );
+        {props.children}
+    </div>;
+
+    return(chip);
 }
 
 
