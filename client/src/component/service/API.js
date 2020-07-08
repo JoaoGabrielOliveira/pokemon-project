@@ -16,7 +16,7 @@ export default class API {
 
         this.Pokemons = res.data.pokemons;
         
-        console.log(this.Pokemons);
+        console.info('Retornando todos os Pokemons do Banco de Dados',this.Pokemons);
         
         return(this.Pokemons);
     }
@@ -46,7 +46,7 @@ export default class API {
     {
         const res = await Axios.get(this.URL + '/types' + '?' + options)
         
-        console.log(res.data.types);
+        console.info('Retornando todos os Tipos de Pokemons do Banco de Dados:',res.data.types);
         return(res.data.types);
     }
 

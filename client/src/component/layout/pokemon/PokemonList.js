@@ -30,9 +30,14 @@ export default class PokemonList extends Component {
         else
         {
             console.info('Quantidades de elementos Selecionados:',this.state.seletedTypes.length);
-            this.state.seletedTypes.forEach(type => (
-                OPTIONS += '&bytype=' + type.id
-            ));
+            
+            let op = [];
+
+            this.state.seletedTypes.map(type => {
+                op.push(type.id);
+            });
+
+            OPTIONS ="&bytype=["+op.join()+"]";
         }
         
 
