@@ -6,12 +6,4 @@
                 json.avatar pokemon.avatar
             end
         end
-
-        unless @queryTypes.nil?
-            json.types @queryTypes.each do |type|
-                json.id type.id
-                json.name type.name
-                json.color type.color
-            end
-        end
     end
