@@ -16,9 +16,28 @@ export default class PokemonList extends Component {
         pesquisa:false
     }
 
-    async Pesquisar(event)
+    Text = '';
+    Options = '';
+
+    async Pesquisar()
     {
-        await API.SeachPokemon(event);
+        var OPTIONS = '';
+
+        if(this.state.seletedTypes.length < 2 && this.state.seletedTypes[0] !== undefined)
+        {
+            OPTIONS = '&bytype=' + this.state.seletedTypes[0].id;
+        }
+        else
+        {
+            this.state.seletedTypes.forEach(type => (
+                OPTIONS += '&bytype=' + type.id
+            ));
+        }
+        
+
+        this.Options = OPTIONS;
+
+        await API.SeachPokemon(this.Text,this.Options);
         this.setState({pokemon:API.Pokemons});
     }
     
@@ -66,6 +85,8 @@ export default class PokemonList extends Component {
 
         this.setState({seletedTypes:AllTypesSeleted});
         this.setState({types:AllTypes});
+
+        this.Pesquisar();
     }
 
     RemoveOption(index)
@@ -79,6 +100,8 @@ export default class PokemonList extends Component {
 
         this.setState({seletedTypes:AllTypesSeleted});
         this.setState({types:AllTypes});
+
+        this.Pesquisar();
     }
     
     render() {
@@ -99,7 +122,7 @@ export default class PokemonList extends Component {
                 </div>
 
                 <div className='search-box'>
-                    <input className="form-control" onChange={(e) => this.Pesquisar(e) } placeholder='Digite o nome do pokemon:' />
+                    <input id='input-search' className="form-control" onChange={(e) => { this.Text = e.target.value; this.Pesquisar(); } } placeholder='Digite o nome do pokemon:' />
                     
                     <a href="#" role="button">
                         [Mais opções]

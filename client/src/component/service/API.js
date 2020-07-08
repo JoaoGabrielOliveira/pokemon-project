@@ -10,8 +10,6 @@ export default class API {
 
     static Pokemons;
 
-    static Options;
-
     static async getAllPokemons(options = '')
     {
         const res = await Axios.get(this.URL + '/pokemon' + '?' + options);
@@ -31,22 +29,14 @@ export default class API {
         return(res.data);
     }
 
-    static async SeachPokemon(event)
+    static async SeachPokemon(value, options)
     {
         this.Controller = `/search`;
-        let query = event.target.value.toLowerCase();
-        let Seach = this.URL + this.Controller + '?q=' + query;
+        let query = value.toLowerCase();
+        let Seach = this.URL + this.Controller + '?q=' + query + '&' + options;
         
-        if(this.Options == '')
-        {
-            this.Pokemons = undefined;
-        }
-
-        else
-        {
-            const res = await Axios.get(Seach);
-            this.Pokemons = res.data.search.pokemons;
-        }
+        const res = await Axios.get(Seach);
+        this.Pokemons = res.data.search.pokemons;
 
         console.log(Seach);
         console.log(this.Pokemons);
