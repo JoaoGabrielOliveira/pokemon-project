@@ -1,4 +1,3 @@
-unless params[:q].nil?  
     json.search do
         unless @queryPokemons.nil?
             json.pokemons @queryPokemons.each do |pokemon|
@@ -16,6 +15,3 @@ unless params[:q].nil?
             end
         end
     end
-else
-    json.msg 'Não dado encontrado'
-end
