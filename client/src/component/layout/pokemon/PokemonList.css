@@ -61,7 +61,6 @@
 #moreOptions
 {
    width: 100%;
-   
 }
 
 .flex-list
@@ -69,7 +68,6 @@
    display: flex;
    flex-wrap: wrap;
 
-   border: 1px solid black;
    height: 100px;
    overflow-y: scroll;
 }

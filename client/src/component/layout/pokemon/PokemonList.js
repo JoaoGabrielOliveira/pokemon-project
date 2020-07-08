@@ -13,7 +13,8 @@ export default class PokemonList extends Component {
         pokemon:null,
         types:null,
         seletedTypes:[],
-        pesquisa:false
+        pesquisa:false,
+        moreOptions:false
     }
 
     Text = '';
@@ -78,7 +79,17 @@ export default class PokemonList extends Component {
 
     collapeseOptions()
     {
+        if(this.state.moreOptions)
+        {
+            document.getElementById('moreOptions').classList.remove("show");
+            this.setState({moreOptions:false});
+        }
 
+        else
+        {
+            document.getElementById('moreOptions').classList.add("show");
+            this.setState({moreOptions:true});
+        }
     }
 
     AddOption(type, index)
@@ -140,14 +151,22 @@ export default class PokemonList extends Component {
 
                 <div className='search-box'>
                     <input id='input-search' className="form-control" onChange={(e) => { this.Text = e.target.value; this.Pesquisar(); } } placeholder='Digite o nome do pokemon:' />
+                    {
+                        this.state.moreOptions ? (
+                            <a href="#" role="button" onClick={() => this.collapeseOptions() }>
+                                [Menos opções]
+                            </a>
+                        ):(
+                            <a href="#" role="button" onClick={() => this.collapeseOptions() }>
+                                [Mais opções]
+                            </a>
+                        )
+                    }
                     
-                    <a href="#" role="button">
-                        [Mais opções]
-                    </a>
 
                     < hr/>
 
-                    <div id="moreOptions">
+                    <div className='collapse' id="moreOptions">
                         
                         {this.state.seletedTypes.length > 0 &&
                             this.ListTypeSeleted()
