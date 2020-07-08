@@ -13,8 +13,7 @@ export default class PokemonList extends Component {
         pokemon:null,
         types:null,
         seletedTypes:[],
-        pesquisa:false,
-        moreOptions:false
+        pesquisa:false
     }
 
     Text = '';
@@ -77,19 +76,14 @@ export default class PokemonList extends Component {
         }
     }
 
-    collapeseOptions()
+    collapeseOptions(event)
     {
-        if(this.state.moreOptions)
-        {
-            document.getElementById('moreOptions').classList.remove("show");
-            this.setState({moreOptions:false});
-        }
+            document.getElementById('moreOptions').classList.toggle("show");
+            if(event.target.textContent == "[Mais opções]")
+                event.target.textContent = "[Menos opções]";
+            else if (event.target.textContent == "[Menos opções]")
+                event.target.textContent = "[Mais opções]";
 
-        else
-        {
-            document.getElementById('moreOptions').classList.add("show");
-            this.setState({moreOptions:true});
-        }
     }
 
     AddOption(type, index)
@@ -151,17 +145,9 @@ export default class PokemonList extends Component {
 
                 <div className='search-box'>
                     <input id='input-search' className="form-control" onChange={(e) => { this.Text = e.target.value; this.Pesquisar(); } } placeholder='Digite o nome do pokemon:' />
-                    {
-                        this.state.moreOptions ? (
-                            <a href="#" role="button" onClick={() => this.collapeseOptions() }>
-                                [Menos opções]
-                            </a>
-                        ):(
-                            <a href="#" role="button" onClick={() => this.collapeseOptions() }>
+                            <a id='maisop' href="#" role="button" onClick={(e)=>this.collapeseOptions(e)} value='1'>
                                 [Mais opções]
                             </a>
-                        )
-                    }
                     
 
                     < hr/>
