@@ -29,6 +29,7 @@ export default class PokemonList extends Component {
         }
         else
         {
+            console.info('Quantidades de elementos Selecionados:',this.state.seletedTypes.length);
             this.state.seletedTypes.forEach(type => (
                 OPTIONS += '&bytype=' + type.id
             ));
@@ -103,6 +104,17 @@ export default class PokemonList extends Component {
 
         this.Pesquisar();
     }
+
+    ListTypeSeleted()
+        {              
+            let pokemons = this.state.seletedTypes.map((type,index) => (
+                    <Chip key={type.id} id={type.id} name={type.name} color={type.color}>
+                        <span className="closebtn" onClick={(e) => this.RemoveOption(index)}>&times;</span>
+                    </Chip>
+                ));
+
+            return(<><p><b>Tipo de Pokemon</b> selecionados:</p><div className='.flex-list'>{pokemons}</div></>);
+        }
     
     render() {
 
@@ -112,7 +124,7 @@ export default class PokemonList extends Component {
             alignItems:"center",
             justifyContent:"center",
             minHeight:'50vh'
-          };   
+          };
 
         return (
             <Fragment>
@@ -131,15 +143,9 @@ export default class PokemonList extends Component {
                     < hr/>
 
                     <div id="moreOptions">
+                        
                         {this.state.seletedTypes.length > 0 &&
-                            (
-                                this.state.seletedTypes.map((type,index) => (
-                                    <Chip key={type.id} id={type.id} name={type.name} color={type.color}>
-                                        <span className="closebtn" onClick={(e) => this.RemoveOption(index)}>&times;</span>
-                                    </Chip>
-                                ))
-                            )
-
+                            this.ListTypeSeleted()
                         }
                         <p>Selecionar <b>Tipo de Pokemon</b>:</p>
                         <div className='.flex-list'>
