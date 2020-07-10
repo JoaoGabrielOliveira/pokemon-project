@@ -23,10 +23,16 @@ export default class PokemonList extends Component {
     {
         var OPTIONS = '';
 
-        if(this.state.seletedTypes.length < 2 && this.state.seletedTypes[0] !== undefined)
+        if(this.state.seletedTypes.length == 0)
+        {
+            this.Options = OPTIONS;
+        }
+        
+        else if (this.state.seletedTypes.length < 2 && this.state.seletedTypes[0] != undefined)
         {
             OPTIONS = '&bytype=' + this.state.seletedTypes[0].id;
         }
+        
         else
         {
             console.info('Quantidades de elementos Selecionados:',this.state.seletedTypes.length);

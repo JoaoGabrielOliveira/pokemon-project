@@ -1,13 +1,13 @@
 class Api::V1::SearchController < ApplicationController
     def index            
         if params[:show] == 'pokemon' || params[:show] == 'p'
-            @queryPokemons = Pokemon.order(:id).where('name LIKE ?', "#{params[:q]}%")
+            @queryPokemons = Pokemon.order(:id).where('name LIKE ?', "#{params[:q].downcase}%")
         else
-            @queryPokemons = Pokemon.where('name LIKE ?', "#{params[:q]}%")
+            @queryPokemons = Pokemon.where('name LIKE ?', "#{params[:q].downcase}%")
         end
         
 
-        if params[:bytype].to_i > 0 || params[:bytype][0] == "["
+        unless params[:bytype].nil?
 
             pokemon_ids = []
             paramento = nil
