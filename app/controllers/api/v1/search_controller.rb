@@ -1,30 +1,53 @@
 class Api::V1::SearchController < ApplicationController
-    def index
-
-        if params[:filter] == 'pokemon' || params[:filter] == 'p'
-            @queryPokemons = Pokemon.where('name LIKE ?', "#{params[:q]}%")
-
-        elsif params[:filter] == 'type' || params[:filter] == 't'
-            @queryTypes = PokemonType.where('name LIKE ?', "#{params[:q]}%")
-        end
-            
+    def index            
         if params[:show] == 'pokemon' || params[:show] == 'p'
-            @queryPokemons = Pokemon.order(:name).where('name LIKE ?', "#{params[:q]}%")
+            @queryPokemons = Pokemon.order(:id).where('name LIKE ?', "#{params[:q].downcase}%")
+        else
+            @queryPokemons = Pokemon.where('name LIKE ?', "#{params[:q].downcase}%")
+        end
+        
 
-        elsif params[:show] == 'type' || params[:show] == 't'
-            @queryTypes = PokemonType.where('name LIKE ?', "#{params[:q]}%")
+        unless params[:bytype].nil?
 
-        elsif params[:bytype].to_i > 0
-            pokemon_ids = PokemonToType.where('pokemon_type_1 = ? or pokemon_type_2 = ?', "#{params[:bytype].to_i}", "#{params[:bytyoe].to_i}").map(& :pokemon_id)
-            @queryPokemons = []
+            pokemon_ids = []
+            paramento = nil
 
-            pokemon_ids.each do |id|
-                @queryPokemons.push(Pokemon.find(id))
+            if params[:bytype][0] == "["
+                parametro = JSON.parse(params[:bytype])
+                
+                parametro.each do |param|
+                    pokemon_ids = (pokemon_ids + PokemonToType.order(:pokemon_id).where("pokemon_type_1 = ? or pokemon_type_2 = ?", param, param).map(& :pokemon_id) ).uniq
+                end
+            else
+                parametro = [ params[:bytype].to_i, params[:bytype].to_i ]
+                pokemon_ids = PokemonToType.order(:pokemon_id).where("pokemon_type_1 = ? or pokemon_type_2 = ?", parametro[0], parametro[1]).map(& :pokemon_id)
             end
 
-        else
-            @queryTypes = PokemonType.where('name LIKE ?', "#{params[:q]}%")
-            @queryPokemons = Pokemon.where('name LIKE ?', "#{params[:q]}%")
+            pokemons = []
+            @queryPokemons.each do |pokemon|
+                pokemon_ids.each do |pokemon_id|
+                    if pokemon.id == pokemon_id
+                        pokemons.push(pokemon)
+                    end
+                end
+            end
+            
+            @queryPokemons = pokemons
+
+        end
+
+        if params[:byegg].to_i > 0
+            pokemon_ids = PokemonToEggGroup.order(:pokemon_id).where('egg_group_id = ?',params[:byegg].to_i).map(& :pokemon_id)
+            pokemons = []
+            @queryPokemons.each do |pokemon|
+                pokemon_ids.each do |pokemon_id|
+                    if pokemon.id == pokemon_id
+                        pokemons.push(pokemon)
+                    end
+                end
+            end
+
+            @queryPokemons = pokemons
         end
     end
 end

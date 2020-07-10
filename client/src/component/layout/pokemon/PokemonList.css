@@ -1,0 +1,73 @@
+#Pesquisa {
+   position: fixed;
+
+   left: -100%;
+
+   height: 40vh;
+   width: 25%;
+
+   margin-top: 1.5%;
+   transition: left 1s;
+   
+}
+
+#Pesquisa .search-box {
+   box-shadow: 0px 4px 10px #00000036;
+   margin-top: 2  0.5%;
+
+   padding: 5%;
+}
+
+#Pesquisa .search-box input{
+   width: 100%;
+}
+
+#pokemonlist
+{
+   margin-left: -2%;
+   transition: margin-left 1s;
+}
+
+
+.float{
+   text-align: center;
+   position:fixed;
+
+   bottom: 5%;
+   left:3%;
+
+   z-index: 3;
+
+   cursor: pointer;
+}
+
+.my-float{
+   width: 70px;
+   height: 70px;
+   padding: 25% 25%;
+
+   vertical-align: middle;
+
+   box-shadow: 2px 2px 3px #999;
+   background-color: rgba(244, 248, 2, 0.514);
+
+   border-radius: 100px;
+}
+
+.my-float i{
+   font-size: 190%;
+}
+
+#moreOptions
+{
+   width: 100%;
+}
+
+.flex-list
+{
+   display: flex;
+   flex-wrap: wrap;
+
+   height: 100px;
+   overflow-y: scroll;
+}
