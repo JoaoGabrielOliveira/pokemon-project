@@ -12,7 +12,7 @@ export default class Dashboard extends Component {
         
         return (
             <>
-            <Navbar image="https://img.icons8.com/officel/80/000000/pokedex.png" style={{padding:'10px'}} />
+            <Navbar image="https://img.icons8.com/officel/80/000000/pokedex.png" style={{padding:'24px'}} />
                 
                 <div className='container'>
                     <div id='pokemonlist' className='col'>
