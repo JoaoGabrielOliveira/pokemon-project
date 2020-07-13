@@ -1,8 +1,7 @@
 
-span{
-display: flex;
-padding-top: 10px;
-
+#Noticia span{
+    display: flex;
+    padding-top: 10px;
 }
 .divisorG
 {

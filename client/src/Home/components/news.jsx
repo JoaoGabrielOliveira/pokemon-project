@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ItemsCarousel from 'react-items-carousel';
-import './Home.css'
 
 
 export default () => {

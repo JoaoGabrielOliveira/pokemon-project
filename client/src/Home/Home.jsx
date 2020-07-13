@@ -3,8 +3,7 @@ import '../App.css';
 import './Home.css'
 
 import NavBar from '../component/layout/NavBar';
-
-import Pokedex from'./lateral';
+import Pokedex from'./components/lateral';
 
 export default props =>
 <div className="App" >

@@ -1,8 +1,8 @@
 import React from 'react' 
+
 import Poke from './letra';
 import New from './news';
 import Dic from './dinamic'
-import './Home.css';
 
 
 function Alert() {

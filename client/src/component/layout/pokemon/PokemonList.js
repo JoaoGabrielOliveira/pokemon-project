@@ -164,7 +164,7 @@ export default class PokemonList extends Component {
                             this.ListTypeSeleted()
                         }
                         <p>Selecionar <b>Tipo de Pokemon</b>:</p>
-                        <div className='.flex-list'>
+                        <div className='flex-list'>
                             {this.state.types ?
                             (
                                 this.state.types.map((type,index) => (

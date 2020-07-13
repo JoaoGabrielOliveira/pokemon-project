@@ -16,7 +16,7 @@ const styled = {
 
 export default (props) => (
 
-<div style={styled}>
+<div id='Noticia' style={styled}>
         
   <div className="divisorG">
         <h3>Games</h3>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-alert';
-import './Home.css'
+
 
 export default props =>
 <div className="poke">
