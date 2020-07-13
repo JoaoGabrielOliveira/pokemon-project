@@ -1,0 +1,64 @@
+.boder{
+    display: flex;
+    font-family: fantasy;
+    border: 3px solid rgba(255, 105, 180, 0);
+    border-radius: 7px;
+    font-size: 15px;
+    margin-right: 400px;
+    margin-top: 70px;
+    margin-left: 300px;
+    align-items: center;
+    padding: 20px;
+    
+   
+}
+.Card{
+
+border: rgba(95, 158, 160, 0);
+margin-left: 20px;
+margin-top: 90px;
+margin-bottom: 20px;
+padding-left: 90px;
+
+}
+input{
+    text-align: center;
+}
+.control{
+    margin-left: -80px;
+}
+
+.CN{
+    padding-top: 90px;
+    padding-left: 70px ;
+}
+.CE{
+    padding-top: 90px;
+    padding-left: 70px ;
+}
+.CA{
+    
+    padding-top: 90px;
+    padding-left: 70px ;
+}
+
+.Msg{
+    display: flex;
+    margin-top: -332px;
+    margin-left: 330px ;
+
+}
+ .Name{
+     border: rgba(86, 86, 97, 0.459) 1px solid;
+     border-radius: 5px;
+     padding-left: -20px;
+
+     box-shadow: rgba(93, 102, 102, 0.295) 0px 10px 6px;
+ }
+ textarea{
+     border-radius: 9px;
+    padding-bottom: 100px;
+     width: 300px;
+     
+    }
+

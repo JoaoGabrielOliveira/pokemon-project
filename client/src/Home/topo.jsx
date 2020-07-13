@@ -6,7 +6,7 @@ export default class NavBar extends Component {
         let lik = <a href="/">Início</a>
         let link = <a href="/Pokemons">Pokedex</a>
         let like = <a href="../Noticia/src/App.jsx">Notícia</a>
-        let lke = <a href="/">Contato</a>
+        let lke = <a href="/contatons">Contato</a>
         
         
         return (

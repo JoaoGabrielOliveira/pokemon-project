@@ -8,7 +8,7 @@ import NavBar from './component/layout/NavBar';
 import Home from './Home/Home.jsx';
 import Dashboard from './component/layout/Dashboard';
 import Pokemon from './component/layout/pokemon/Pokemon';
-import Pesquisa from './component/layout/pokemon/pesquisa'
+import Cont from './Contatos/cont.jsx'
 
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/pokemons" component={Dashboard} />
               <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
-              <Route exact path="/pesquisa" component={Pesquisa} />
+              <Route exact path="/Contatons" component={Cont} />
             </Switch>
         </div>
       </BrowserRouter>
