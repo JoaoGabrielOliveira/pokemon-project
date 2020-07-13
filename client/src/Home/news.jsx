@@ -28,7 +28,7 @@ export default () => {
                   <div className="conteu">A Niantic divulgou, nesta terça-feira, os eventos que acontecerão em julho no Pokémon GO. Entre as principais novidades, está a chegada de Kyurem membro do Trio de Elite, às reides de nível 5. Além disso, Larvitar poderá ser capturado pela Descoberta Extraordinária.  </div>
                 <a  className="button" href="/"><strong>Ler Mais</strong></a>
                     </div>
-                  </div>        
+                  </div>
         </div>
         <div style={{ height:650,width:500,background: '' }}>
                   <div>

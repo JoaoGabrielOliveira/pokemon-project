@@ -15,7 +15,7 @@ alert="oiuy"
 export default props =>
 <div className="conf">
     
-   <div className="topo1">
+   <div id="topo1">
       
        <strong className="titulo"> Historia do Pokemon </strong>
        <div className="text">
@@ -31,7 +31,7 @@ export default props =>
        <img src="https://i.pinimg.com/originals/d8/48/95/d848953a7d952445d996b5387ce20352.png" width="1000px" height="250px"/>
   </div> 
   </div>
-   <div className="topo2">
+   <div id="topo2">
     
        <Poke/>
     

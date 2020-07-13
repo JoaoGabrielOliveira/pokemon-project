@@ -12,7 +12,9 @@ export default props =>
    <div >
    
     <h1>   <NavBar style={{margin:"-16px", maxHeight:'150px'}} text /></h1> 
-    <div ><Pokedex/></div> 
+    <div>
+        <Pokedex/>
+    </div> 
 
     </div>   
  
