@@ -1,7 +1,9 @@
 import React from 'react';
 import '../App.css';
 import './Home.css'
-import Menu from './topo.jsx';
+
+import NavBar from '../component/layout/NavBar';
+
 import Pokedex from'./lateral';
 
 export default props =>
@@ -9,7 +11,7 @@ export default props =>
     
    <div >
    
-    <h1>   <Menu/></h1> 
+    <h1>   <NavBar style={{margin:"-16px", maxHeight:'150px'}} text /></h1> 
     <div ><Pokedex/></div> 
 
     </div>   

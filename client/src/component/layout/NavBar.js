@@ -1,45 +1,54 @@
 import React, { Component } from 'react'
-
 import '../../App.css'
+
 export default class NavBar extends Component {
     render() {
-        let lik = <a href="/">Início</a>
-        let link = <a href="/">Pokedex</a>
-        let like = <a href="/">Notícia</a>
-        let lke = <a href="/">Contato</a>
-        
+        let imagem = `https://www.apple-tribe.com/wp-content/uploads/2016/07/pokemon-pikachu-go-2.jpg`;
+
+        let strongText = <strong style={{marginLeft:'5%'}}>Pokedex</strong>; 
+
+        //let imagem = `https://img.icons8.com/officel/80/000000/pokedex.png`
+        let links = [
+            <a href="/">Início</a>,
+            <a href="/Pokemons">Pokedex</a>,
+            <a href="/Noticia">Notícia</a>,
+            <a href="/Contato">Contato</a>
+        ];
+
+        if (this.props.image != undefined )
+            imagem = this.props.image;
+
+        if (this.props.text == true)
+            strongText = undefined;
+
         return (
-            <div>
                 <nav className="navbar">
-                  
-                  <nav className="tex">
-                    <div className=" title">
-                   <img src="https://img.icons8.com/officel/80/000000/pokedex.png" style={{padding:"20px"}}/>             
-                   </div>
-                   <strong>Pokedex</strong>
-                    
-                  </nav> 
-                   <div className="menu">
-                <ul className="letra">
-                    <li className="home">
-                        {lik}
+                    <nav className="tex">
+                        <div className="title">
+                            <img src={imagem} style={this.props.style}/>
+                        </div>
+                        {strongText}
+                    </nav> 
+                <div className="menu">
+                    <ul className="letra">
+                        <li className="home">
+                            {links[0]}
                         </li>
+
                         <li className="Pokedex">
-                        {link}
+                            {links[1]}
                         </li>
-                            <li className="Noticia">
-                            {like} 
+
+                        <li className="Noticia">
+                            {links[2]}
                         </li>
-                            <li className="Notacao">
-                            {lke} 
+
+                        <li className="Notacao">
+                            {links[3]}
                         </li>
-                </ul>
-     
-      </div>   
-              </nav>
-             
-            </div>
-      
+                    </ul>
+                </div>   
+            </nav>
         )
     }
 }

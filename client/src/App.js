@@ -12,15 +12,8 @@ import Pokemon from './component/layout/pokemon/Pokemon';
 
 class App extends Component {
   render() {
-    let navbar;
-    if(window.location.pathname != '/')
-      {
-        navbar = <NavBar />
-      }
     return ( 
       <BrowserRouter>
-      
-        {navbar}
         <div className="App">
           <Switch>
               <Route exact path="/" component={Home} />
