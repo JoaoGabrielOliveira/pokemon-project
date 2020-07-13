@@ -13,7 +13,7 @@
     "mdbreact": "^4.27.0",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
-    "react-alert": "^7.0.1",
+    "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
@@ -23,8 +23,10 @@
     "react-native-responsive-screen": "^1.4.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-simplert": "^0.0.2",
     "react-slick": "^0.26.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
