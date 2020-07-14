@@ -65,13 +65,11 @@ export default class cont extends Component {
     
     </button> 
 </div>
-    <div className="Card">
-     <img  src="https://i.pinimg.com/originals/e4/cd/8d/e4cd8da51b95436ddd7b5830e4c5ed48.jpg" height="800px" />
+    <div id="ImageCard">
+        <img  src="https://i.pinimg.com/originals/e4/cd/8d/e4cd8da51b95436ddd7b5830e4c5ed48.jpg" height="800px" />
     </div> 
   
 </form>
-
-
         )
     }
 }
