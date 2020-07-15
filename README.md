@@ -49,21 +49,13 @@
 1. Criar e popular o Banco de Dados
 
   
-    1.1. Cria o banco de dados da Aplicação
+    1.1. Cria o banco de dados da Aplicação, assim como suas tabelas [Documentação dessa Task](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/tasks.md#markdown-header-setup)
 
-    -  ``` rails db:create ```
+    -  ``` ruby rails db:setup ```
 
-    1.2. Criando as tabelas do banco de dados.
+    1.2. Populando tabelas com os Pokemons e informações relacionadas [Documentação dessa Task](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/tasks.md#markdown-header-populate)
 
-    - ``` rails db:migrate``` 
-
-    1.3. Pega os dados dos Tipos de Pokémons e adiciona ao banco de dados da Aplicação
-
-    -  ``` rails db:populate:types ```
-
-    1.4. Pega os dados dos Pokémon e adiciona ao Banco de Dados da Aplicação
-
-    -  ``` rails db:populate:pokemons ```
+    - ``` ruby rails db:populate ```
 
 _OBS: Esse processo pode demorar alguns segundos_
 
@@ -71,7 +63,13 @@ _OBS: Esse processo pode demorar alguns segundos_
 
 2. Fazer primeira consulta na API
 
--  ```  rails s ```
+    2.1. Instale todas as Dependências/**Gems** da API 
+
+    - ``` ruby bundle install```
+
+    2.2. Execute o comando para Rodar a **API**
+    
+    -  ``` ruby  rails s ```
 
 - Acesse [localhost:3000/api/v1/pokemon](localhost:3000/api/v1/pokemon).
 
@@ -99,13 +97,13 @@ Api está pronta para uso
 
 ## Mais informações
 
-* [TASKS]()
+* [TASKS](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/tasks.md)
 
-* [API]()
+* [API](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/api.md)
 
-* [DATABASE]()
+* [DATABASE](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/db/database.md)
 
-* [MODEL]()
+* [MODEL](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/db/model.md)
 
 
 ---
