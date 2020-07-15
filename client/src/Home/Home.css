@@ -1,7 +1,7 @@
 .App{
     overflow:none;
 }
-.topo1{
+#topo1{
     padding: 100px;
     background-color: rgba(247, 234, 112, 0.575);
 }
@@ -38,7 +38,10 @@
     text-align: center;
     padding-bottom: 50px;
 }
-.topo2{
+
+
+
+#topo2{
   padding: 100px;
   background-color: rgb(243, 155, 155)   ;
 }

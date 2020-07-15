@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Axios from 'axios';
+import API from '../../service/API'
   
 const TYPE_COLORS = {
   bug: 'B1C12E',
@@ -49,36 +49,36 @@ const TYPE_COLORS = {
       const { pokemonIndex } = this.props.match.params;
   
       // Urls do pokemon
-      const pokemonUrl = `http://localhost:3001/api/v1/pokemon/${pokemonIndex}/`;
   
       // pegar informações
-      const pokemonRes = await Axios.get(pokemonUrl);
+      const pokemonRes = await API.getPokemon(pokemonIndex);
   
-      if (pokemonRes.data.msg !== 'ID não encontrado') {
-      const name = pokemonRes.data.name;
-      const imageUrl = pokemonRes.data.avatar;
+      if (pokemonRes.msg !== 'ID não encontrado')
+      {
+      const name = pokemonRes.name;
+      const imageUrl = pokemonRes.avatar;
   
       // Conversor:)
       const height =
-        Math.round((pokemonRes.data.height * 0.328084 + 0.00001) * 100) / 100;
+        Math.round((pokemonRes.height * 0.328084 + 0.00001) * 100) / 100;
   
       const weight =
-        Math.round((pokemonRes.data.weight * 0.220462 + 0.00001) * 100) / 100;
+        Math.round((pokemonRes.weight * 0.220462 + 0.00001) * 100) / 100;
   
-      const types = pokemonRes.data.types.map(type => type.name);
-      const types_color = pokemonRes.data.types.map(type => type.color);
+      const types = pokemonRes.types.map(type => type.name);
+      const types_color = pokemonRes.types.map(type => type.color);
   
       const themeColor = `${types_color[types[types.length - 1]]}`;
   
       // pegar descrição do pokemon
 
-        let femaleRate = pokemonRes.data.gender_rate;
+        let femaleRate = pokemonRes.gender_rate;
         const genderRatioFemale = 12.5 * femaleRate;
         const genderRatioMale = 12.5 * (8 - femaleRate);
   
-        const catchRate = Math.round((100 / 255) * pokemonRes.data.capture_rate);
+        const catchRate = Math.round((100 / 255) * pokemonRes.capture_rate);
   
-        const eggGroups = pokemonRes.data.egg_group
+        const eggGroups = pokemonRes.egg_group
           .map(group => {
             return group.name
               .toLowerCase()
@@ -88,7 +88,7 @@ const TYPE_COLORS = {
           })
           .join(', ');
   
-        const hatchSteps = 255 * (pokemonRes.data.hatch_counter + 1);
+        const hatchSteps = 255 * (pokemonRes.hatch_counter + 1);
   
         this.setState({
           genderRatioFemale,
@@ -110,7 +110,10 @@ const TYPE_COLORS = {
     }
     else
     {
-      const msg = <div style={{justifyContent:'center',alignItems:'center',display:'flex',minHeight:'35vh',marginLeft:'5%', textTransform:'uppercase', fontSize:'200%'}}>O ID desse Pokemon no consta no Banco de Dados</div>
+      const msg = <div style={
+        {justifyContent:'center',alignItems:'center',display:'flex',minHeight:'35vh',marginLeft:'5%', textTransform:'uppercase', fontSize:'200%'}}>
+          O ID desse Pokemon no consta no Banco de Dados
+      </div>
       this.setState({msg})
     }
     }

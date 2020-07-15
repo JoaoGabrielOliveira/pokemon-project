@@ -21,13 +21,9 @@ class Api::V1::PokemonController < ApplicationController
         begin
             @pokemon = Pokemon.find(params[:id])
 
-            ptot = PokemonToType.find(@pokemon.pokemon_to_type_id)
+            ptot = PokemonToType.find(@pokemon.pokemon_to_type)
             
-            @types = [PokemonType.find(ptot.pokemon_type_1)]
-
-            unless ptot.pokemon_type_2.nil?
-                @types.push(PokemonType.find(ptot.pokemon_type_2))
-            end
+            @types = [ PokemonType.find(ptot.pokemon_type_1) ]
 
             @egg_group = []
             group = PokemonToEggGroup.where("pokemon_id = #{@pokemon.id}")

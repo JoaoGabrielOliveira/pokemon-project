@@ -13,7 +13,7 @@ class Api::V1::TypesController < ApplicationController
         @types = @types.take(params[:limit].to_i)
     end
 
-    if params[:order] != '' && params[:color] == ''
+    if params[:order] != ''
         @types = @types.sort_by {|e| e[params[:order]]}
     end
 
