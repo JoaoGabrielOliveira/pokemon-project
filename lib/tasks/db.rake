@@ -2,7 +2,40 @@ namespace :db do
 
   desc "Resetando banco de dados, criando um novo e fazendo as migrações"
   task setup: :environment do
-    
+    puts '   - Rodando todas as Tasks de Banco de Dados -'
+    puts '__ DELETANDO TODOS BANCOS DE DADOS __'
+    %x[rails db:drop]
+
+    puts '_______________'
+
+    puts '__ CRIANDO TODOS BANCOS DE DADOS __'
+    %x[rails db:create]
+
+    puts '_______________'
+
+    puts '__ EXECUTANDO MIGRAÇÕES PARA CRIAÇÃO DE TABELAS __'
+    %x[rails db:migrate]
+
+    puts '_______________'
+  end
+
+  desc "Realizando todas as Task para popular Pokemon, PokemonTypes e EggGroups"
+  task populate: :environment do
+    puts '   - Rodando todas as Tasks de População -'
+    puts '__PokemonTypes'
+    %x[rails db:populate:types]
+
+    puts '_______________'
+
+    puts '__EggGroups'
+    %x[rails db:populate:egg]
+
+    puts '_______________'
+
+    puts 'Pokemon'
+    %x[rails db:populate:pokemon]
+
+    puts '_______________'
   end
 
   desc "Realizando todas as Task para popular Pokemon, PokemonTypes e EggGroups"
