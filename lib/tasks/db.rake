@@ -77,7 +77,7 @@ namespace :db do
 
         pok = Pokemon.find(pokemon[:pokemon_id])
 
-        pok.pokemon_to_type_id = p.id
+        pok.pokemon_to_type = p.id
         pok.save!
         sp4.spin
       end

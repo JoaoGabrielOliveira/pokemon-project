@@ -10,6 +10,7 @@ import Dashboard from './component/layout/Dashboard';
 import Pokemon from './component/layout/pokemon/Pokemon';
 
 import Noticia from './Noticia/index';
+import Cont from './Contatos/cont.jsx'
 
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
               <Route exact path="/pokemons" component={Dashboard} />
               <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
               <Route exact path="/noticia" component={Noticia} />
+              <Route exact path="/Contatons" component={Cont} />
             </Switch>
         </div>
       </BrowserRouter>
