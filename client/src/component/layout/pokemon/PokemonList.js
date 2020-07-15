@@ -122,18 +122,18 @@ export default class PokemonList extends Component {
     }
 
     ListTypeSeleted()
-        {              
-            let pokemons = this.state.seletedTypes.map((type,index) => (
-                    <Chip key={type.id} id={type.id} name={type.name} color={type.color}>
-                        <span className="closebtn" onClick={(e) => this.RemoveOption(index)}>&times;</span>
-                    </Chip>
-                ));
+    {              
+        let pokemons = this.state.seletedTypes.map((type,index) => (
+                <Chip key={type.id} id={type.id} name={type.name} color={type.color}>
+                    <span className="closebtn" onClick={(e) => this.RemoveOption(index)}>&times;</span>
+                </Chip>
+            ));
 
-            return(<><p><b>Tipo de Pokemon</b> selecionados:</p><div className='.flex-list'>{pokemons}</div></>);
-        }
+        return(<><p><b>Tipo de Pokemon</b> selecionados:</p><div className='.flex-list'>{pokemons}</div></>);
+    }
     
-    render() {
-
+    render()
+    {
         const styled = {
             padding: "10px",
             display:"flex",

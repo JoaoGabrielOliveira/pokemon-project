@@ -65,6 +65,7 @@
 
 .flex-list
 {
-   display: flex;
+   display: flexbox;
+   display: -ms-flexbox;
    flex-wrap: wrap;
 }
