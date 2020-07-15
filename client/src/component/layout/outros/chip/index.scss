@@ -1,0 +1,54 @@
+.chip {
+    display: inline-block;
+    padding: 0 6%;
+
+    margin: 2% 2.5%;
+
+    max-width: 48%;
+    
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.35);
+
+    font-weight: bold;
+    font-size: 100%;
+    line-height: 35px;
+
+    border-radius: 25px;
+    box-shadow: 0 0 0.5px 1px #00000034;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    cursor: pointer;
+
+    border: 1px solid;
+    border-color: #0c0c0c;
+    color: #0c0c0c;
+
+    transition: 0.3s all;
+    &:hover
+    {
+        color:white;
+    }
+}
+
+.closebtn {
+    background: transparent;
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    &:hover
+    {
+        color: #000;
+    }
+  }
