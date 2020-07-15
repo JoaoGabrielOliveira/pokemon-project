@@ -25,7 +25,7 @@ export default props =>
        Foi a partir dessa ideia que nasceu Pokémon, em 1994.
        </div>
         <div>
-       <a href="https://www.bichosgeeks.com/historia-do-desenvolvimento-de-pokemon/" className="btn"  onClick={Alert} ><strong>Ler Mais </strong></a >
+       <a href="https://www.historiadetudo.com/pokemon" className="btn"  onClick={Alert} ><strong>Ler Mais </strong></a >
        </div>
       <div className="img">
        <img src="https://i.pinimg.com/originals/d8/48/95/d848953a7d952445d996b5387ce20352.png" width="1000px" height="250px"/>

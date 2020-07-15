@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_06_30_115544) do
   end
 
   create_table "pokemon_types", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "color", default: "#ededed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -53,16 +53,13 @@ ActiveRecord::Schema.define(version: 2020_06_30_115544) do
     t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "pokemon_to_type_id"
     t.integer "pokemon_to_type"
     t.float "capture_rate"
     t.float "gender_rate"
     t.integer "hatch_counter"
-    t.index ["pokemon_to_type_id"], name: "index_pokemons_on_pokemon_to_type_id"
   end
 
   add_foreign_key "pokemon_to_egg_groups", "egg_groups"
   add_foreign_key "pokemon_to_egg_groups", "pokemons"
   add_foreign_key "pokemon_to_types", "pokemons"
-  add_foreign_key "pokemons", "pokemon_to_types"
 end
