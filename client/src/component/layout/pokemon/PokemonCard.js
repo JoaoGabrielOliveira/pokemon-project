@@ -38,8 +38,8 @@ export default class PokemonCard extends Component {
         avatar:''
     };
 
-    componentDidMount(){
-          const {name, url}= this.props;
+    componentWillMount(){
+          const {name}= this.props;
           const pokemonIndex = this.props.id;
           const imagemUrl= `${this.props.avatar}`
              
@@ -48,17 +48,14 @@ export default class PokemonCard extends Component {
                         pokemonIndex });
 
             this.setState({themeColor:this.props.cor})
-    
-
-        
         };
 
     render() {
         return (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-                <Link to={`pokemon/${this.props.id}`}>
-                <Card className='card ' style={{ backgroundColor: `#${this.props.themeColor}` }} >
-                        <h5 className="card-header">{this.props.id}</h5>
+                <Link to={`pokemon/${this.state.pokemonIndex}`}>
+                <Card className='card ' style={{ backgroundColor: `#${this.state.themeColor}` }} >
+                        <h5 className="card-header">{this.state.pokemonIndex}</h5>
                         {this.state.imageLoading?(
                             <img src={pokebola} style={{width:'10em',height:'10em'
                           }}

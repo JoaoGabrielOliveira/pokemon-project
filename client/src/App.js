@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.slim.js'
+import 'popper.js/dist/popper.js'
 
 import  './App.css';
 
@@ -23,7 +25,7 @@ class App extends Component {
               <Route exact path="/pokemons" component={Dashboard} />
               <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
               <Route exact path="/noticia" component={Noticia} />
-              <Route exact path="/Contatons" component={Cont} />
+              <Route exact path="/contato" component={Cont} />
             </Switch>
         </div>
       </BrowserRouter>

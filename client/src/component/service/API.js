@@ -1,6 +1,4 @@
 import Axios from 'axios';
-import React from 'react'
-
 
 export default class API {
     
@@ -12,11 +10,11 @@ export default class API {
 
     static async getAllPokemons(options = '')
     {
-        const res = await Axios.get(this.URL + '/pokemon' + '?' + options);
+        const res = await Axios.get(API.URL + `/pokemon?` + options);
 
         this.Pokemons = res.data.pokemons;
         
-        console.info('Retornando todos os Pokemons do Banco de Dados',this.Pokemons);
+        console.info('Retornando todos os Pokemons do Banco de Dados',API.Pokemons);
         
         return(this.Pokemons);
     }

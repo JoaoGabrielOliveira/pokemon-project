@@ -20,6 +20,7 @@ export default class NavBar extends Component {
 
         if (this.props.text == true)
             strongText = undefined;
+        
 
         return (
                 <nav className="navbar">

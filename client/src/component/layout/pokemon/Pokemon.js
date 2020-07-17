@@ -153,7 +153,7 @@ const TYPE_COLORS = {
                 <div className="row align-items-center">
                   <div className=" col-md-3 ">
                     <img
-                      src={this.state.imageUrl}
+                      src={this.state.imageUrl} alt
                       className="card-img-top rounded mx-auto mt-2"
                     />
                   </div>
