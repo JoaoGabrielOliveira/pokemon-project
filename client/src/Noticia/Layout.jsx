@@ -48,7 +48,7 @@ export default class Layout extends React.Component {
                         <Parametros  Color={colorValue} titulo={noticia.title} />
                         <Pri text={noticia.description}>
                             <div style={{textAlign:"center"}}>
-                                <a href='#'  data-toggle="modal" data-target="#exampleModal">[ Leia mais em {noticia.source.name} ]</a>
+                                <a href={noticia.url} target="_blank" >[ Leia mais em {noticia.source.name} ]</a>
                             </div>
                         </Pri>
                     </Card>
