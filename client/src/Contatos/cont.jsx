@@ -11,11 +11,12 @@ import swal from 'sweetalert';
 export default class cont extends Component {
     render() {
         return (
+            <nav className="navbar"> 
         <form className="boder"style={{alignItems:"center",paddingLeft:"90px",marginTop:"-90px"}}>
             
             <div style={{ paddingTop:"160px",alignItems:"center"}}>
             <div className="infor">
-            Para entrar em contato conosco, utilize o formulário abaixo. Caso precise anexar um arquivo ou esteja com dificuldades para carregar o formulário, envie um e-mail para contato@pokemonnewscenter.com.br através do seu provedor de e-mail.
+            Para entrar em contato conosco, utilize o formulário abaixo. 
             </div>
         <div className="control">
         <div className="CN">
@@ -44,12 +45,14 @@ export default class cont extends Component {
 </div>
  <button
       onClick={
+          alert(
          
             swal({
         title: "OBRIGADA!",
         text: "Sua menssagem foi enviada!",
         icon: "success",
       })  
+  )
 
     }
     style={{
@@ -70,6 +73,8 @@ export default class cont extends Component {
     </div> 
   
 </form>
+</nav>
+
         )
     }
 }

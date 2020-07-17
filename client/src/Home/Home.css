@@ -93,12 +93,12 @@
 .New{
     padding: 100px;
 }
-.Card{
+.Game{
     display: flex;
     flex-direction: column;
     flex: 50;
     margin: 20px;
-    border: 3px rgb(116, 139, 240) solid;
+    border: 3px rgb(92, 107, 241) solid;
     border-radius: 10px;
     overflow: none;  
     background-color: rgb(255, 255, 255);
@@ -160,30 +160,4 @@ button{
     padding: 20px;
     font-family: monospace;
     text-align: center;
-}
-.Tela{
-    padding: 100px;
-    background-color: lightseagreen;
-}
-.Todo{
-    display:flex;
-    padding: 100px;
-    background-color: rgb(90,9,0);
-}
-.MDBCard{
-  margin-top: 200px;
-    height: 200px;
-    width: 22rem;
-
-}
-.img-fluid{
-    border-radius: 90%;
-    margin-left: 90px;
-    margin-bottom: 10px;
-    width: 199px;
-    height: 190px;
-
-}
-.MDBimg{
- margin-top: -200px;
 }
