@@ -6,7 +6,7 @@ export default class API {
     
     static URL = `http://localhost:3001/api/v1`;
 
-    static Controller = ``;
+    static NewsURL = `http://newsapi.org/v2/everything?q=pokemon&language=pt`;
 
     static Pokemons;
 
@@ -56,5 +56,14 @@ export default class API {
 
         console.log(res.data.type);
         return(res.data.type);
+    }
+
+    static async getNews(n)
+    {
+        const APIKEY = `&apikey=58bad1fa579a4bf48ec3024d9afcc270`;
+
+        const res = await Axios.get(this.NewsURL + APIKEY)
+
+        return res.data.articles.slice(0, n);
     }
 }
