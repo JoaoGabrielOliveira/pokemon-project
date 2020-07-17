@@ -2,6 +2,7 @@ import React from "react";
 import API from '../component/service/API'
 import './index.css'
 
+import _ from 'lodash';
 
 import Pri from './components/Pri.jsx';
 import Card from './components/card/Card';
@@ -18,38 +19,47 @@ const styled = {
 export default class Layout extends React.Component {
     
     state={
-        Noticias:null
+        Noticias:null,
+        altColors:['#FF6347','#3CB371','#40E0D0','#00BFFF', '#FFaa00','#FFB6C1', '#EE82EE', '#9400D3']
     }
 
     async componentDidMount()
     {
-        let Bom = [];
+        const resNoticias = await API.getNews(6);
+        const resCores = await API.getAllPokemonType('&color=');
+        console.log(resNoticias);
 
-        const resNoticias = await API.getNews(5);
-        this.setState({Noticias:resNoticias});
+        this.setState({Noticias:resNoticias, altColors:resCores});
     }
 
     render(){
-
         return(
         <div id='Noticia' style={styled}>
                 
         <div className="divisorG">
-                <h3>Games</h3>
+                <h3>Destaque</h3>
         </div>
-        
-        <span>
+        <div className='row'>
             {this.state.Noticias ?
                         (
-                        this.state.Noticias.map(noticia => (
-                            <Card key='1' color='#00BFFF'>
+                        this.state.Noticias.slice(2, 4).map(noticia => {
+                            let colorValue ='#' + _.sample(this.state.altColors);
+
+                            return(
+                            <Card key={noticia.title} color={colorValue} title={noticia.title}>
+                                
                                 <Img  src={noticia.urlToImage}  />
-                                <Parametros  Color='#00BFFF'titulo={noticia.title} /> 
-                                <Pri text={noticia.content}  />
+                                <Parametros  Color={colorValue} titulo={noticia.title} />
+                                <Pri text={noticia.description}>
+                                    <div style={{textAlign:"center"}}>
+                                        <a href='#' >[ Leia mais em {noticia.source.name} ]</a>
+                                    </div>
+                                </Pri>
                             </Card>
-                        )))
+                            );
+                        }))
                     :(<h1 style={styled}>Carregando lista...</h1>)}
-        </span>
+        </div>
 
         <div className="divisor">
                 <h3>Mundo Pokemon</h3>
