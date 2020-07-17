@@ -10,7 +10,7 @@ Por exemplo, ao criar uma nova model, é também criado uma nova tabela de mesmo
 Em Pokemon estão os principais dados dos Pokémons, assim como alguns relacionamentos.
 
 **DER**
-![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_Pokemon.png)
+![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_Pokemon.png)
 
 
 
@@ -19,7 +19,7 @@ Em Pokemon estão os principais dados dos Pokémons, assim como alguns relaciona
 Em PokemonType é onde fica amazenado todos os _Tipos de Pokémons_ da primeira geração.
 
 **DER**
-![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_Type.png)
+![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_Type.png)
 
 
 
@@ -28,7 +28,7 @@ Em PokemonType é onde fica amazenado todos os _Tipos de Pokémons_ da primeira 
 Em **EggGroup** é onde fica amazenado todos os _Grupos de Ovos_ dos Pokémons da primeira geração.
 
 **DER**
-![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_EggGroup.png)
+![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_EggGroup.png)
 
 
 
@@ -36,7 +36,7 @@ Em **EggGroup** é onde fica amazenado todos os _Grupos de Ovos_ dos Pokémons d
 
 ### Diagrama Completo
 
-![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_completo.png)
+![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_completo.png)
 
 
 
@@ -44,7 +44,7 @@ Em **EggGroup** é onde fica amazenado todos os _Grupos de Ovos_ dos Pokémons d
 
 |Pokemon|Type|EggGropup|
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_Pokemon.png)|![ImagemcomDERdoMODELType](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_Type.png)|![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_EggGroup.png)|
+|![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_Pokemon.png)|![ImagemcomDERdoMODELType](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_Type.png)|![ImagemcomDERdoMODELPokemon](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_EggGroup.png)|
 
 
 ### DER Tabelas JOIN
@@ -54,5 +54,5 @@ Tabelas Auxiliares que fazem a relação de uma tabela com outra
 
 | Pokemon para PokemonType | Pokemon para EggGroup |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![PokemonToPokemonType](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_PokemonToTypes.png) | ![PokemonToPokemonType](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/87ed60e911a8b2c7293acfadeca23e3cb7e1ea7b/docs/db/DER_PokemonToEggGroup.png) |
+| ![PokemonToPokemonType](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_PokemonToTypes.png) | ![PokemonToPokemonType](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/raw/37025452e286bc0b8140ee507ad0541f464e60e7/docs/db/DER_PokemonToEggGroup.png) |
     
