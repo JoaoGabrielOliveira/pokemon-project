@@ -55,7 +55,7 @@ export default class PokemonCard extends Component {
 
     render() {
         return (
-            <div className="col-md-3 col-sm-5 mb-2">
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                 <Link to={`pokemon/${this.props.id}`}>
                 <Card className='card ' style={{ backgroundColor: `#${this.props.themeColor}` }} >
                         <h5 className="card-header">{this.props.id}</h5>

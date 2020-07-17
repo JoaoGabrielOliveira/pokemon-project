@@ -21,7 +21,7 @@ Listar todos os pokémons cadastrados no Banco de Dados mostrando nome e avatar.
 _* PokemonController_
 
 
-### Paramêtros
+#### Paramêtros
 
 
 | O que o comando faz: | Parâmetro: | Descrição: |
@@ -67,7 +67,7 @@ _* SearchController_
 
 
 
-### Paramêtros
+#### Paramêtros
 
 
 | O que o comando faz: | Parâmetro: | Descrição: |
