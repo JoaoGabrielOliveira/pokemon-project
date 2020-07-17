@@ -11,6 +11,9 @@
 
 ### Back-end / API
 
+* Ruby on Rails
+
+	- A API foi construida através do Framework da linguagem Ruby, _Ruby on Rails_
 
 * Poke-Api-V2
 
