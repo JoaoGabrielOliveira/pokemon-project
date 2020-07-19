@@ -35,9 +35,12 @@ export default class API {
         
         const res = await Axios.get(Seach);
         this.Pokemons = res.data.search.pokemons;
+        
 
         console.log(Seach);
         console.log(this.Pokemons);
+
+        return res.data.search.pokemons;
     }
     
     static async getAllPokemonType(options = '')
