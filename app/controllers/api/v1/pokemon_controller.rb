@@ -1,4 +1,5 @@
 class Api::V1::PokemonController < ApplicationController
+
     def index
         if params[:offset].to_i > 0
             @pokemons = Pokemon.all.drop(params[:offset].to_i) #.pluck(:id, :name, :)
@@ -11,8 +12,16 @@ class Api::V1::PokemonController < ApplicationController
             @pokemons = @pokemons.take(params[:limit].to_i)
         end
 
-        if params[:order] != ''
+        unless params[:order].nil?
             @pokemons = @pokemons.sort_by {|e| e[params[:order]]}
+        end
+
+        unless params[:gif].nil?
+            @pokemons.each do |pokemon|
+                pokemon_name = pokemon.name.capitalize()
+                url = "https://raw.githubusercontent.com/figormartins/pokemon/master/PokeApi/static/#{pokemon_name}.gif"
+                pokemon.avatar = url
+            end
         end
 
     end
