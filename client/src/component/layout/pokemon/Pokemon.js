@@ -48,10 +48,8 @@ const TYPE_COLORS = {
     async componentDidMount() {
       const { pokemonIndex } = this.props.match.params;
   
-      // Urls do pokemon
-  
       // pegar informações
-      const pokemonRes = await API.getPokemon(pokemonIndex);
+      const pokemonRes = await API.getPokemon(pokemonIndex, this.props.location.search);
   
       if (pokemonRes.msg !== 'ID não encontrado')
       {
