@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import pokebola from '../pokemon/pokeba.gif';
 
 const Sprite = styled.img
-`width: 10em;
+`width: auto;
  height: 10em;
  display: none;
 

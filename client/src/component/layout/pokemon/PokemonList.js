@@ -51,7 +51,7 @@ export default class PokemonList extends Component {
     
     async componentDidMount()
     {
-        const res = await API.getAllPokemons('order=id');
+        const res = await API.getAllPokemons('order=id&gif=');
         const pokemontypes = await API.getAllPokemonType('order=name');
 
         this.setState({pokemon:res});
