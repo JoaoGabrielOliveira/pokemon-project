@@ -25,9 +25,9 @@
 
 * Rack-cors
     
-	- Permite configurara os acessos a API.
+	- Permite configurar os acessos a API.
         
-	- Configuração padrão na API []()
+	- Configuração padrão na [API](https://bitbucket.org/JoaoGabrielOliveira/projetoaprendizes/src/master/docs/api.md)
   
 * Rack Attack
 
