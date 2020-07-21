@@ -19,9 +19,9 @@ export default class API {
         return(this.Pokemons);
     }
 
-    static async getPokemon(id)
+    static async getPokemon(id, option = '')
     {
-        const res = await Axios.get(this.URL + '/pokemon/' + id)
+        const res = await Axios.get(this.URL + '/pokemon/' + id + option)
 
         console.log(' ----------------- Dados carregados com sucesso! -----------------');
         return(res.data);

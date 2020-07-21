@@ -1,4 +1,5 @@
 import React, { Component, Fragment, useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import PokemonCard from './PokemonCard';
 import Chip from '../outros/chip';
@@ -6,18 +7,66 @@ import './PokemonList.css';
 
 import API from '../../service/API';
 
+
 export default class PokemonList extends Component {
 
     state={
         pokemon:null,
         types:null,
         seletedTypes:[],
-        pesquisa:false
+        pesquisa:false,
+        gif:true
     } 
 
     timer = null;
 
-    async Pesquisar(queryText)
+
+    loadSearchCamp(){
+        let styled = {
+            backgroundColor:'#ededed'
+        };
+        return(
+        <div id='Pesquisa'>
+            <div className="float">
+                    <div className='my-float' onClick={() => this.btnChange()}> <i className="material-icons">search</i> </div>
+            </div>
+
+            <div className='search-box'>
+                <input id='input-search' className="form-control" onChange={e => { this.Pesquisar(e.target.value); } } placeholder='Digite o nome do pokemon:' />
+                        <a id='maisop' href="#" role="button" onClick={(e)=>this.collapeseOptions(e)} value='1'>
+                            [Mais opções]
+                        </a>
+                < hr/>
+
+                <div className='collapse' id="moreOptions">
+                    {this.state.seletedTypes.length > 0 &&
+                        this.ListTypeSeleted()
+                    }
+                    <p>Selecionar <b>Tipo de Pokemon</b>:</p>
+                    <div className='flex-list'>
+                        {this.state.types ?
+                        (
+                            this.state.types.map((type,index) => (
+                                <span key={type.id} onClick={(e) => this.AddOption(type, index)} >
+                                    <Chip id={type.id} name={type.name} color={type.color} />
+                                </span>
+                            ))
+                        )
+                        :
+                        (
+                            <h1>Não há nada</h1>
+                        )}
+                        <hr />
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+    );
+    }
+
+    async Pesquisar(queryText = '')
     {
         var OPTIONS = '';
 
@@ -51,7 +100,7 @@ export default class PokemonList extends Component {
     
     async componentDidMount()
     {
-        const res = await API.getAllPokemons('order=id');
+        const res = await API.getAllPokemons('order=id&gif');
         const pokemontypes = await API.getAllPokemonType('order=name');
 
         this.setState({pokemon:res});
@@ -66,7 +115,7 @@ export default class PokemonList extends Component {
             document.getElementById('pokemonlist').style.marginLeft = '-3%';
             this.setState({pesquisa:false});
 
-            await API.getAllPokemons('order=id');
+            await API.getAllPokemons('order=id&gif=');
             this.setState({pokemon:API.Pokemons});
         }
 
@@ -139,46 +188,8 @@ export default class PokemonList extends Component {
           };
 
         return (
-            <Fragment>
-            <div id='Pesquisa'>
-                <div className="float">
-                        <div className='my-float' onClick={() => this.btnChange()}> <i className="material-icons">search</i> </div>
-                </div>
-
-                <div className='search-box'>
-                    <input id='input-search' className="form-control" onChange={e => { this.Pesquisar(e.target.value); } } placeholder='Digite o nome do pokemon:' />
-                            <a id='maisop' href="#" role="button" onClick={(e)=>this.collapeseOptions(e)} value='1'>
-                                [Mais opções]
-                            </a>
-                    < hr/>
-
-                    <div className='collapse' id="moreOptions">                        
-                        {this.state.seletedTypes.length > 0 &&
-                            this.ListTypeSeleted()
-                        }
-                        <p>Selecionar <b>Tipo de Pokemon</b>:</p>
-                        <div className='flex-list'>
-                            {this.state.types ?
-                            (
-                                this.state.types.map((type,index) => (
-                                    <span key={type.id} onClick={(e) => this.AddOption(type, index)} >
-                                        <Chip id={type.id} name={type.name} color={type.color} />
-                                    </span>
-                                ))
-                            )
-                            :
-                            (
-                                <h1>Não há nada</h1>
-                            )}
-                            <hr />
-                        </div>
-                    </div>
-                </div>
-
-                
-            </div>
-                
-                
+            <Fragment>             
+            {this.loadSearchCamp()}
             {this.state.pokemon ?
                 (<div className="row">
                 {this.state.pokemon.map(pokemon => (
@@ -188,6 +199,7 @@ export default class PokemonList extends Component {
                         name={pokemon.name}
                         avatar={pokemon.avatar}
                         cor={pokemon.cor}
+                        gif={this.state.gif}
                    />
                 ))}
             </div>):(<h1 style={styled}>Carregando lista...</h1>)}

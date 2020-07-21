@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import pokebola from '../pokemon/pokeba.gif';
 
 const Sprite = styled.img
-`width: 10em;
+`width: auto;
  height: 10em;
  display: none;
  textDecoration: none;
@@ -24,9 +24,11 @@ textDecoration: none;
 -website-user-select: none;
 user-select: none;
 -o-user-select: none;
-
-
-
+& img{
+    width:auto;
+    min-height:10em;
+}
+max-height:100em;
 `;
 
 
@@ -57,12 +59,13 @@ export default class PokemonCard extends Component {
         };
 
     render() {
+        let link = this.props.gif?(`pokemon/${this.state.pokemonIndex}?gif=`):(`pokemon/${this.state.pokemonIndex}`);
+        
         return (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-                <Link to={`pokemon/${this.state.pokemonIndex}` }>
-                    
-                <Card className='card ' style={{ backgroundColor: `#${this.state.themeColor}` }} >
-                        <h5 className="card-header" style={{color:"black"}}>{this.state.pokemonIndex}</h5>
+                <Link to={link}>
+                <Card className='card' style={{ backgroundColor: `#${this.state.themeColor}` }} >
+                        <h5 className="card-header">{this.state.pokemonIndex}</h5>
                         {this.state.imageLoading?(
                             <img src={pokebola} style={{width:'10em',height:'10em'
                           }}
