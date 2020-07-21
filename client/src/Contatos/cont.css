@@ -1,3 +1,6 @@
+.nav{
+    background-image: linear-gradient(to right, red , yellow);
+}
 .boder{
     display: flex;
     font-family: fantasy;

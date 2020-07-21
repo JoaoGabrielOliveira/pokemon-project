@@ -39,6 +39,7 @@ export default props =>
    <div className="New">
            <div className="TN">
                <strong>News</strong>
+              <p style={{fontSize:"20px"}}> Todas as informações irão te direcionar ao site.</p>
            </div>
             <New/>
 
