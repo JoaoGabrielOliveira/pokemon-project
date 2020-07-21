@@ -66,7 +66,7 @@ export default class PokemonList extends Component {
     );
     }
 
-    async Pesquisar(queryText)
+    async Pesquisar(queryText = '')
     {
         var OPTIONS = '';
 
@@ -115,7 +115,7 @@ export default class PokemonList extends Component {
             document.getElementById('pokemonlist').style.marginLeft = '-3%';
             this.setState({pesquisa:false});
 
-            await API.getAllPokemons('order=id');
+            await API.getAllPokemons('order=id&gif=');
             this.setState({pokemon:API.Pokemons});
         }
 
