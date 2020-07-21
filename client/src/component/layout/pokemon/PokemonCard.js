@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
+import '../../../App.css'
 
 import styled from 'styled-components';
 import pokebola from '../pokemon/pokeba.gif';
@@ -8,11 +9,13 @@ const Sprite = styled.img
 `width: auto;
  height: 10em;
  display: none;
+ textDecoration: none;
 
 `;
 const  Card= styled.div`
 box-shadow:0 1px 3px rgba(0,0,0.12), 0 1px 2px rgba(0,0,0.24);
 trasition:all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+textDecoration: none;
 &:hover{
     box-shadow: 10px 14px 28px pink ;
     cursor: pointer;
@@ -27,6 +30,7 @@ user-select: none;
 }
 max-height:100em;
 `;
+
 
 export default class PokemonCard extends Component {
   
@@ -83,11 +87,14 @@ export default class PokemonCard extends Component {
                            <h6 className="mx-auto" >
                                <span className="badge badge-danger mt-2">Loading</span>
                            </h6>): null}
-                            <div className="card-body">
-                                <h6 className="card-title ">
+                        <div className="card-body" style={{linkDecoration:"none"}}
+                        >
+                        
+                                <h6 className="card-title "  >
                                     {this.state.name.toLocaleLowerCase().split('')
                                     .map(letter=> letter.charAt(0).toUpperCase()+letter.substring(1))
                                     .join('')}
+                                    
                                 </h6>
                         </div>
 
