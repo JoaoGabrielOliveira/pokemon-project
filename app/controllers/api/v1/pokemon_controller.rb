@@ -57,6 +57,8 @@ class Api::V1::PokemonController < ApplicationController
                  @egg_group.push(egg.egg_group) 
             end
 
+            @pokemon.name = @pokemon.name.capitalize
+
             unless params[:gif].nil?
                 
                     if @pokemon.name.index("-")
@@ -71,14 +73,11 @@ class Api::V1::PokemonController < ApplicationController
 
                     elsif @pokemon.id == 127
                         @pokemon.name = %Q[Farfetch'd]
-
-                    else
-                        @pokemon.name = @pokemon.name.capitalize
                     end
                     
     
-                    url = "https://raw.githubusercontent.com/figormartins/pokemon/master/PokeApi/static/#{@pokemon.name}.gif"
-                    @pokemon.avatar = url
+                    @modernAvatar = "https://raw.githubusercontent.com/figormartins/pokemon/master/PokeApi/static/#{@pokemon.name}.gif"
+                    @classicAvatar = @pokemon.avatar
             end
             
         rescue => exception

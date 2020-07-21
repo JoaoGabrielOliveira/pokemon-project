@@ -1,6 +1,11 @@
 if @pokemon.blank?
     json.msg 'ID não encontrado'
 
+elsif params[:gif] != nil
+    json.id @pokemon.id
+    json.modernAvatar @modernAvatar
+    json.classicAvatar @classicAvatar
+
 else
     json.id @pokemon.id
     json.name @pokemon.name
