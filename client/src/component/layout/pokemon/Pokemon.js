@@ -119,13 +119,16 @@ const TYPE_COLORS = {
     }
     render() {
         return  (
-          <>
-            <div className="col">
-            <div className="card">
+
+  <p style={{marginTop:"40px"}}>
+
+        
+            <div className="col" style={{fontFamily:"Franklin Gothic Medium"}}>
+            <div className="card" style={{marginTop:"60px"}}>
               <div className="card-header">
-                <div className="row" style={{ backgroundColor: `#{TYPE_COLORS[state]}`}}>
-                  <div className="col-5">
-                    <h5>{this.state.pokemonIndex}</h5>
+                <div className="row" style={{fontSize:"1.3pc"}}>
+                  <div className="col-5" >
+                    <h5 style={{paddingLeft:"50px"}}>{this.state.pokemonIndex}</h5>
                   </div>
                   <div className="col-7">
                     <div className="float-right">
@@ -158,12 +161,12 @@ const TYPE_COLORS = {
                     />
                   </div>
                   <div className="col-md-9">
-                    <h4 className="mx-auto">
-                      {this.state.name
+                    <h4 className="mx-auto" style={{textAlign:"center",marginBottom:"4pc"}}>
+                     <strong> {this.state.name
                         .toLowerCase()
                         .split(' ')
                         .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-                        .join(' ')}
+                        .join(' ')}</strong>
                     </h4>
                     <div className="card-body">
                 <div className="row">
@@ -204,7 +207,7 @@ const TYPE_COLORS = {
                             aria-valuemin="0"
                             aria-valuemax="100"
                           >
-                            <small>{this.state.genderRatioFemale}</small>
+                            <small>{this.state.genderRatioFemale}% </small>
                           </div>
                           
                           <div
@@ -213,14 +216,15 @@ const TYPE_COLORS = {
                             style={{
                               width: `${this.state.genderRatioMale}%`,
                               backgroundColor: '#82EEFD',
-                              color:"black"
+                              color:"black",
+                             
                             }}
                             aria-valuenow="30"
                             aria-valuemin="0"
                             aria-valuemax="100"
                           >
                               
-                            <small>{this.state.genderRatioMale}</small>
+                            <small>{this.state.genderRatioMale}%</small>
                           </div>
                         </div>
                       </div>
@@ -247,7 +251,7 @@ const TYPE_COLORS = {
                 </div>
               </div>
               {this.state.msg}
-          </>  
+          </p>  
         );
     };
 
