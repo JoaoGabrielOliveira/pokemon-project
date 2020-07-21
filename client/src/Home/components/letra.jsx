@@ -6,7 +6,7 @@ export default props =>
 <div className="poke">
     <div>
     <img className="img2" src="https://thumbs.gfycat.com/WeakSparseDromedary-small.gif"/>
-    <div className="tekst">
+    <div className="tekst" >
     
 <strong className="titu" >O que é Pokedex?</strong>
     <div>
