@@ -10,7 +10,7 @@ function ChangeColors(event, color)
 
 function OutMouse(event, color)
 {
-    event.target.style.backgroundColor = 'white';
+    event.target.style.backgroundColor = 'transparent';
     event.target.style.boxShadow = 'none';
     event.target.style.color = '#' + color;
 }
@@ -22,12 +22,27 @@ const Chip = (props) => {
         color:'#' + props.color
     };
 
-    let chip = <div className="chip" onClick={props.func} style={CommonState}
-    onMouseEnter={(e) => ChangeColors(e,props.color)}
-    onMouseLeave={(e) => OutMouse(e,props.color) } >
-        {props.name}
-        {props.children}
-    </div>;
+    let chip;
+
+    if (props.static)
+    {
+        chip = <div className="chip" onClick={props.func} style={CommonState, {backgroundColor:'#'+props.color, border:'none', color:'white'}}>
+                {props.name}
+                {props.children}
+        </div>;
+    }
+
+    else
+    {
+        chip = <div className="chip" onClick={props.func} style={CommonState}
+            onMouseEnter={(e) => ChangeColors(e,props.color)}
+            onMouseLeave={(e) => OutMouse(e,props.color) } >
+                {props.name}
+                {props.children}
+        </div>;
+    }
+
+    
 
     return(chip);
 }
