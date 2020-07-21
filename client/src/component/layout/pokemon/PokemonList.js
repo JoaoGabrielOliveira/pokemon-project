@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, useEffect, useState } from 'react';
 
 import PokemonCard from './PokemonCard';
 import Chip from '../outros/chip';
@@ -9,17 +9,15 @@ import API from '../../service/API';
 export default class PokemonList extends Component {
 
     state={
-        url:'http://localhost:3001/api/v1/pokemon?order=id',
         pokemon:null,
         types:null,
         seletedTypes:[],
         pesquisa:false
-    }
+    } 
 
-    Text = '';
-    Options = '';
+    timer = null;
 
-    async Pesquisar()
+    async Pesquisar(queryText)
     {
         var OPTIONS = '';
 
@@ -37,20 +35,18 @@ export default class PokemonList extends Component {
         {
             console.info('Quantidades de elementos Selecionados:',this.state.seletedTypes.length);
             
-            let op = [];
+            let ops = [];
 
             this.state.seletedTypes.map(type => {
-                op.push(type.id);
+                ops.push(type.id);
             });
 
-            OPTIONS ="&bytype=["+op.join()+"]";
+            OPTIONS ="&bytype=["+ops.join()+"]";
         }
-        
 
-        this.Options = OPTIONS;
+        clearTimeout(this.timer);
 
-        await API.SeachPokemon(this.Text,this.Options);
-        this.setState({pokemon:API.Pokemons});
+        this.timer = setTimeout(() => API.SeachPokemon(queryText, OPTIONS).then(E => this.setState({pokemon:E})),500);
     }
     
     async componentDidMount()
@@ -150,16 +146,13 @@ export default class PokemonList extends Component {
                 </div>
 
                 <div className='search-box'>
-                    <input id='input-search' className="form-control" onChange={(e) => { this.Text = e.target.value; this.Pesquisar(); } } placeholder='Digite o nome do pokemon:' />
+                    <input id='input-search' className="form-control" onChange={e => { this.Pesquisar(e.target.value); } } placeholder='Digite o nome do pokemon:' />
                             <a id='maisop' href="#" role="button" onClick={(e)=>this.collapeseOptions(e)} value='1'>
                                 [Mais opções]
                             </a>
-                    
-
                     < hr/>
 
-                    <div className='collapse' id="moreOptions">
-                        
+                    <div className='collapse' id="moreOptions">                        
                         {this.state.seletedTypes.length > 0 &&
                             this.ListTypeSeleted()
                         }
@@ -202,4 +195,3 @@ export default class PokemonList extends Component {
         )
     }
 }
-

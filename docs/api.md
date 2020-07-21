@@ -75,3 +75,18 @@ _* SearchController_
 | Ordenar Pokemons por ordem de algum atributo | order=atributo | Lista todos os pokemons semelhantes a query em uma determinada ordem. Atributos aceitos: **id**, **name**, **weight**, **height**, **capture_rate**, **gender_rate** ou **hatch_counter** |
 | Mostrar Pokemon por um Tipo Especifico de Pokémon | bytype=id | Lista todos os pokemons semelhantes a query, selecionando apenas de um determinando Tipo de Pokémon. Ponha o **ID** do PokemonType desejado. |
 | Mostrar Pokémons por um Grupo de Ovos Especifico | byegg=id | Lista todos os pokemons semelhantes a query, selecionando apenas de um determinando Grupo de Ovos. Ponha o **ID** do EggGroup desejado. |
+
+
+## Segurança
+
+A configuração da API permite enviar seus dados excluisvamnete para a aplicação que rode no _localhost_ na porta _3000_. A nivel de desenvolvimento, permite que apenas a parte front-end da aplicação tenha acesso aos dados da API.
+
+A configurações padrões:
+
+* Origin : localhost:3000
+
+* Resource : '*'
+
+* headers: 'any'
+
+* methods: 'get'

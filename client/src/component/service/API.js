@@ -35,9 +35,12 @@ export default class API {
         
         const res = await Axios.get(Seach);
         this.Pokemons = res.data.search.pokemons;
+        
 
         console.log(Seach);
         console.log(this.Pokemons);
+
+        return res.data.search.pokemons;
     }
     
     static async getAllPokemonType(options = '')
@@ -50,6 +53,7 @@ export default class API {
 
     static async getPokemonType(id)
     {
+        //home/bionexo/Documents/projetoaprendizes/app/controllers/api/v1/search_controller.rb
         const res = await Axios.get(this.URL + '/types/' + id)
 
         console.log(res.data.type);
