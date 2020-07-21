@@ -139,12 +139,12 @@ const TYPE_COLORS = {
       {
         case 'figormartins':
           this.setState({imageUrl:this.state.classicAvatar});
-          this.setState({imageTitleText:'Clique para alterar para o Visual Classico'});
+          this.setState({imageTitleText:'Clique para alterar para o Visual Moderno'});
         break;
 
         case 'PokeAPI':
           this.setState({imageUrl:this.state.modernAvatar});
-          this.setState({imageTitleText:'Clique para alterar para o Visual Moderno'});
+          this.setState({imageTitleText:'Clique para alterar para o Visual Clássico'});
         break;
       }
 
