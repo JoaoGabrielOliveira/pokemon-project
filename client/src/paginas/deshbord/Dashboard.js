@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import PokemonList from '../layout/pokemon/PokemonList';
+import PokemonList from './PokemonList';
 
-import Navbar from './NavBar';
+import Navbar from '../../component/NavBar';
 
-import API from '../service/API';
+import API from '../../service/API';
 
 
 export default class Dashboard extends Component {

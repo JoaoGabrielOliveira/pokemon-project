@@ -1,5 +1,5 @@
 import React from "react";
-import API from '../component/service/API'
+import API from '../../service/API'
 import './index.css'
 
 import _ from 'lodash';

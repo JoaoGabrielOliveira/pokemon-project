@@ -1,8 +1,7 @@
 import React from 'react';
-import '../App.css';
 import './Home.css'
 
-import NavBar from '../component/layout/NavBar';
+import NavBar from '../../component/NavBar';
 import Pokedex from'./components/lateral';
 
 export default props =>

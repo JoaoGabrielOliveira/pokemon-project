@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-import '/home/bionexo/projetoaprendizes/client/src/App.css'
+
 
 import styled from 'styled-components';
-import pokebola from '../pokemon/pokeba.gif';
+import pokebola from './pokeba.gif';
 
 const Sprite = styled.img
 `width: 10em;

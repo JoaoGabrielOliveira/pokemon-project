@@ -7,12 +7,12 @@ import 'popper.js/dist/popper.js'
 
 import  './App.css';
 
-import Home from './Home/Home';
-import Dashboard from './component/layout/Dashboard';
-import Pokemon from './component/layout/pokemon/Pokemon';
+import Home from './paginas/Home/Home.jsx';
+import Dashboard from './paginas/deshbord/Dashboard';
+import Pokemon from './paginas/pokemon/Pokemon';
 
-import Noticia from './Noticia/index';
-import Cont from './Contatos/cont.jsx'
+import Noticia from './paginas/Noticia/index';
+import Cont from './paginas/Contatos/cont.jsx'
 
 
 class App extends Component {

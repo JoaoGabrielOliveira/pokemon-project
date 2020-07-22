@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavBar from '../component/layout/NavBar';
+import NavBar from '../../component/NavBar';
 import Layout from './Layout';
 
 import './index.css';

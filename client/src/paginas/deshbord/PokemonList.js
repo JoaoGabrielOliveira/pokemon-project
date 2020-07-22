@@ -1,7 +1,7 @@
 import React, { Component, Fragment, useEffect, useState } from 'react';
 
-import PokemonCard from './PokemonCard';
-import Chip from '../outros/chip';
+import PokemonCard from '../../component/pokemonCard/PokemonCard';
+import Chip from '../../component/chip';
 import './PokemonList.css';
 
 import API from '../../service/API';
