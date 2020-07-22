@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './cont.css'
 import swal from 'sweetalert';
+import Menu from './menuCont';
 
 
 
@@ -12,13 +13,19 @@ import swal from 'sweetalert';
 export default class cont extends Component {
     render() {
         return (
-            <nav className="navbar"> 
-           <form className="boder"style={{alignItems:"center",paddingLeft:"90px",marginTop:"-90px"}}>
+            <nav className="navr" style={{}}> 
+              
+           <form className="boder"style={{alignItems:"center",paddingLeft:"90px"}} >
             
-            <div style={{ paddingTop:"160px",alignItems:"center"}}>
-            <div className="infor">
-            Para entrar em contato conosco, utilize o formulário abaixo. 
-            </div>
+            <div style={{alignItems:"center"}}>
+                <div style={{display:"flex"}} >
+              <Menu style={{display:"block"}}/>
+              </div>
+                <div >
+            <div style={{float:"left", paddingLeft:"200px",fontSize:"20px   "}}>
+            Para entrar em contato conosco, utilize o formulário abaixo.
+            </div> 
+            <div style={{}}>
         <div className="control">
         <div className="CN">
         <div className="Nome">Seu nome<span style={{color:"red", padding:'10px'}}>*</span></div>
@@ -32,25 +39,34 @@ export default class cont extends Component {
         <div className="Nome">Titulo do Assunto<span style={{color:"red", padding:'10px'}}>*</span></div>
           <input type="text" placeholder="Titulo" className="Name"></input>
     </div>  
- 
+   
 </div>
 
-   <div className="Msg">
+   <div className="Msg" style={{paddingTop:"30px"}}>
    <div className="CM">
        <label>Sua Mensagem<span style={{color:"red", padding:'10px'}}>*</span></label><br></br>
        <span className=" textarea">
        <textarea name="textarea"   placeholder="O que você quer nos dizer?"></textarea></span> 
       
    </div> 
-    
-</div>
-
-
-    
-</div>
-   
   
-</form>
+    
+</div>
+
+</div>
+</div>
+</div>
+  <div style={{marginTop:"700px",marginLeft:"-1000px",}} >
+  <button type="submit" className="enviar" value="Enviar">
+      <img src="https://img.icons8.com/color/50/00000/pokeball--v1.png"/> Enviar
+  </button>
+  
+
+    </div> 
+  
+</form> 
+
+
 </nav>
 
         )
