@@ -1,34 +1,33 @@
-.nav{
-    background-image: linear-gradient(to right, red , yellow);
+.navr{
+    background-image: linear-gradient(to right,#FF5247    ,	   #FFFD89);
+    padding: 4.2pc;
+   
+    
+}
+.MEEN{
+    margin-left: 100px;
 }
 .boder{
+    margin:20px 9pc -5px 15pc;
+    padding-top: -60pc;
     display: flex;
     font-family: fantasy;
-    border: 3px solid rgba(255, 105, 180, 0);
-    border-radius: 7px;
-    font-size: 15px;
-    margin-right: 400px;
-    margin-top: 70px;
-    margin-left: 300px;
-    align-items: center;
-    padding: 20px;
+    background-color: white;
+    border-radius: 9px;
+    width: 70pc;
+    height: 50pc;
     
    
 }
-#ImageCard{
 
-border: rgba(95, 158, 160, 0);
-margin-left: 20px;
-margin-top: 90px;
-margin-bottom: 20px;
-padding-left: 90px;
 
-}
 input{
+    
     text-align: center;
 }
 .control{
-    margin-left: -80px;
+    
+    margin-left: -10px;
 }
 
 .CN{
@@ -46,22 +45,37 @@ input{
 }
 
 .Msg{
-    display: flex;
-    margin-top: -332px;
-    margin-left: 330px ;
+    display: block;
+    margin-top: -370px;
+    margin-left: 430px ;
 
 }
  .Name{
      border: rgba(86, 86, 97, 0.459) 1px solid;
      border-radius: 5px;
      padding-left: -20px;
-
      box-shadow: rgba(93, 102, 102, 0.295) 0px 10px 6px;
  }
  textarea{
      border-radius: 9px;
-    padding-bottom: 100px;
-     width: 300px;
+     width: 500px;
+     height: 300px;
+    }
+    .enviar{
+        border: rgba(180, 165, 165, 0) 2px solid;
+        background-color: rgba(255, 173, 173, 0.315);
+        padding: 9px 500px 9px 500px;
+        border-radius:9px;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: fantasy;
+       
+    }
+    .enviar:hover{
      
+        background-repeat: no-repeat;
+        border: red 2px solid;
+        transition: 2s;
+
     }
 
