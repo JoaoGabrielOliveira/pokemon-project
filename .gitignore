@@ -26,7 +26,8 @@
 /server/yarn-debug.log*
 /server/.yarn-integrity
 
-
+/log/*
+/tmp/*
 
 # REACT
 /client/node_modules
