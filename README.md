@@ -23,6 +23,14 @@
 
 	- Para construir API json com maior facilidade.
 
+* tty-spinner
+
+    - Para melhorar a visibilidade dos processos feitos em console.
+
+* minitest
+
+    - Para criação dos teste automatizados.
+
 * Rack-cors
     
 	- Permite configurar os acessos a API.
@@ -66,6 +74,10 @@ _OBS: Esse processo pode demorar alguns segundos_
 
 2. Fazer primeira consulta na API
 
+    3.1. Acesse a pasta server, onde está aplicação Rails
+
+    - ```cd server ```
+
     2.1. Instale todas as Dependências/**Gems** da API 
 
     - ``` ruby bundle install```
@@ -83,7 +95,7 @@ Api está pronta para uso
 
 3. Executando o servidor para o Front-end da Aplicação
 
-    3.1. Acesse a pasta client
+    3.1. Acesse a pasta client, onde está aplicação React
 
     - ```cd client ```
 
