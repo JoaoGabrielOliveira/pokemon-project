@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 
-
 import styled from 'styled-components';
 import pokebola from './pokeba.gif';
-import Dina from '../../paginas/Home/components/dinamic'
 
 const Sprite = styled.img
-`width: 10em;
+`width: auto;
  height: 10em;
  display: none;
- textDecoration: none;
 
 `;
 const  Card= styled.div`
 box-shadow:0 1px 3px rgba(0,0,0.12), 0 1px 2px rgba(0,0,0.24);
 trasition:all 0.3s cubic-bezier(0.25,0.8,0.25,1);
-textDecoration: none;
 &:hover{
     box-shadow: 10px 14px 28px pink ;
     cursor: pointer;
@@ -25,11 +21,12 @@ textDecoration: none;
 -website-user-select: none;
 user-select: none;
 -o-user-select: none;
-
-
-
+& img{
+    width:auto;
+    min-height:10em;
+}
+max-height:100em;
 `;
-
 
 export default class PokemonCard extends Component {
   
@@ -58,13 +55,13 @@ export default class PokemonCard extends Component {
         };
 
     render() {
+        let link = this.props.gif?(`pokemon/${this.state.pokemonIndex}?gif=`):(`pokemon/${this.state.pokemonIndex}`);
+        
         return (
-            <>
             <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-                <Link to={`pokemon/${this.state.pokemonIndex}` }>
-                    
-                <Card className='card ' style={{ backgroundColor: `#${this.state.themeColor}` }} >
-                        <h5 className="card-header" style={{color:"black"}}>{this.state.pokemonIndex}</h5>
+                <Link to={link}>
+                <Card className='card' style={{ backgroundColor: `#${this.state.themeColor}` }} >
+                        <h5 className="card-header">{this.state.pokemonIndex}</h5>
                         {this.state.imageLoading?(
                             <img src={pokebola} style={{width:'10em',height:'10em'
                           }}
@@ -86,22 +83,17 @@ export default class PokemonCard extends Component {
                            <h6 className="mx-auto" >
                                <span className="badge badge-danger mt-2">Loading</span>
                            </h6>): null}
-                        <div className="card-body" style={{linkDecoration:"none"}}
-                        >
-                        
-                                <h6 className="card-title "  >
+                            <div className="card-body">
+                                <h6 className="card-title ">
                                     {this.state.name.toLocaleLowerCase().split('')
                                     .map(letter=> letter.charAt(0).toUpperCase()+letter.substring(1))
                                     .join('')}
-                                    
                                 </h6>
                         </div>
 
                   </Card>
                 </Link>
             </div>
-    
-            </>
         )
     }
 }
