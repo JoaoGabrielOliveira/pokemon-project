@@ -23,6 +23,14 @@
 
 	- Para construir API json com maior facilidade.
 
+* tty-spinner
+
+    - Para melhorar a visibilidade dos processos feitos em console.
+
+* minitest
+
+    - Para criação dos teste automatizados.
+
 * Rack-cors
     
 	- Permite configurar os acessos a API.
