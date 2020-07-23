@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
 import API from '../../service/API'
+import styled from 'styled-components'
+
+const Avatar = styled.img`
+cursor:pointer;
+transition: 1s all;
+&:hover{
+  transform:scale(120%);
+}
+`;
   
 const TYPE_COLORS = {
   bug: 'B1C12E',
@@ -22,14 +31,14 @@ const TYPE_COLORS = {
   water: '3295F6'
 };
 
-  export default class Info extends Component {
-    
-   
-    
+  export default class Info extends Component {    
     state = {
       name: '',
       pokemonIndex: '',
       imageUrl: '',
+      imageTitleText:'',
+      modernAvatar:null,
+      classicAvatar:null,
       types: [],
       statTitleWidth: 3,
       statBarWidth: 9,
@@ -49,12 +58,17 @@ const TYPE_COLORS = {
       // pegar informações
 
       const pokemonIndex = this.props.pokemonIndex;
-      const pokemonRes = await API.getPokemon(pokemonIndex, this.props.options);
+      const pokemonRes = await API.getPokemon(pokemonIndex);
+      const avatares = await API.getPokemon(pokemonIndex, '?gif=');
+      console.log(avatares);
   
       if (pokemonRes.msg !== 'ID não encontrado')
       {
       const name = pokemonRes.name;
+
       const imageUrl = pokemonRes.avatar;
+      const modernAvatar = avatares.modernAvatar;
+      const classicAvatar = avatares.classicAvatar;
   
       // Conversor:)
       const height =
@@ -98,6 +112,8 @@ const TYPE_COLORS = {
   
       this.setState({
         imageUrl,
+        modernAvatar,
+        classicAvatar,
         pokemonIndex,
         name,
         types,
@@ -115,8 +131,28 @@ const TYPE_COLORS = {
       this.setState({msg})
     }
     }
+
+    changeImage()
+    {
+      
+      switch(this.state.imageUrl.split('/')[3])
+      {
+        case 'figormartins':
+          this.setState({imageUrl:this.state.classicAvatar});
+          this.setState({imageTitleText:'Clique para alterar para o Visual Moderno'});
+        break;
+
+        case 'PokeAPI':
+          this.setState({imageUrl:this.state.modernAvatar});
+          this.setState({imageTitleText:'Clique para alterar para o Visual Clássico'});
+        break;
+      }
+
+      console.log(this.state.imageUrl);
+    }
+
     render() {
-        return  (
+        return (
           <>
             <div className="col">
             <div className="card">
@@ -150,9 +186,10 @@ const TYPE_COLORS = {
               <div className="card-body">
                 <div className="row align-items-center">
                   <div className=" col-md-3 ">
-                    <img
-                      src={this.state.imageUrl} alt
-                      className="card-img-top rounded mx-auto mt-2"
+                    <Avatar
+                      src={this.state.imageUrl} alt='Imagem não carregada'
+                      className="card-img-top rounded mx-auto mt-2" title={this.state.imageTitleText}
+                      onClick={e => this.changeImage()}
                     />
                   </div>
                   <div className="col-md-9">
