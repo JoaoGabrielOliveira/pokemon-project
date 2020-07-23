@@ -4,7 +4,7 @@ import PokemonList from './PokemonList';
 import Navbar from '../../component/NavBar';
 
 import API from '../../service/API';
-import Dina from '../../paginas/Home/components/dinamic'
+
 
 
 export default class Dashboard extends Component {
@@ -20,7 +20,7 @@ export default class Dashboard extends Component {
                         <PokemonList pokemon={API.Pokemons}/>
                     </div>
                 </div>
-                <Dina style={{marginTop:"90px"}}/>
+                
             </>
         )
     }
