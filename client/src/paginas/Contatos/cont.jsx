@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './cont.css'
 import swal from 'sweetalert';
 import Menu from './menuCont';
+import Dina from '../Home/components/dinamic'
 
 
 
@@ -13,6 +14,7 @@ import Menu from './menuCont';
 export default class cont extends Component {
     render() {
         return (
+            <>
             <nav className="navr" style={{}}> 
               
            <form className="boder"style={{alignItems:"center",paddingLeft:"90px"}} >
@@ -56,9 +58,10 @@ export default class cont extends Component {
 </div>
 </div>
 </div>
-  <div style={{marginTop:"700px",marginLeft:"-1000px",}} >
-  <button type="submit" className="enviar" value="Enviar">
-      <img src="https://img.icons8.com/color/50/00000/pokeball--v1.png"/> Enviar
+  <div style={{marginTop:"700px",marginLeft:"-950px"}} >
+  <button type="submit" className="enviar">
+      <img  style={{marginLeft:"-600px",paddingRight:"400px"}} src="https://img.icons8.com/color/50/00000/pokeball--v1.png"/> 
+      <strong className="envia" style={{textAlign:"center",paddingTop:"10px",fontSize:"20px"}}> Enviar </strong>
   </button>
   
 
@@ -66,9 +69,9 @@ export default class cont extends Component {
   
 </form> 
 
-
 </nav>
-
+<Dina/>
+</>
         )
     }
 }

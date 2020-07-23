@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import styled from 'styled-components';
 import pokebola from './pokeba.gif';
+import Dina from '../../paginas/Home/components/dinamic'
 
 const Sprite = styled.img
 `width: 10em;
@@ -58,6 +59,7 @@ export default class PokemonCard extends Component {
 
     render() {
         return (
+            <>
             <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                 <Link to={`pokemon/${this.state.pokemonIndex}` }>
                     
@@ -98,6 +100,8 @@ export default class PokemonCard extends Component {
                   </Card>
                 </Link>
             </div>
+    
+            </>
         )
     }
 }

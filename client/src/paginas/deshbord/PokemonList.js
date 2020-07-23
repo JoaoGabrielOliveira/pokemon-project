@@ -4,6 +4,7 @@ import PokemonCard from '../../component/pokemonCard/PokemonCard';
 import Chip from '../../component/chip';
 import './PokemonList.css';
 
+
 import API from '../../service/API';
 
 export default class PokemonList extends Component {
@@ -139,6 +140,7 @@ export default class PokemonList extends Component {
           };
 
         return (
+            <>
             <Fragment>
             <div id='Pesquisa'>
                 <div className="float">
@@ -192,6 +194,7 @@ export default class PokemonList extends Component {
                 ))}
             </div>):(<h1 style={styled}>Carregando lista...</h1>)}
             </Fragment>
+            </>
         )
     }
 }

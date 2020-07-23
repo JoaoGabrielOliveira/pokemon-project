@@ -8,7 +8,7 @@
     margin-left: 100px;
 }
 .boder{
-    margin:20px 9pc -5px 15pc;
+    margin:-5px 15pc -5px 15pc;
     padding-top: -60pc;
     display: flex;
     font-family: fantasy;
@@ -62,20 +62,19 @@ input{
      height: 300px;
     }
     .enviar{
-        border: rgba(180, 165, 165, 0) 2px solid;
-        background-color: rgba(255, 173, 173, 0.315);
-        padding: 9px 500px 9px 500px;
-        border-radius:9px;
-        font-weight: bold;
-        font-size: 20px;
-        font-family: fantasy;
+        display: inline-flex;
+        padding: 2px 400px 2px 580px;
+        background-color: rgba(255, 0, 0, 0.356);
        
     }
+
     .enviar:hover{
-     
-        background-repeat: no-repeat;
         border: red 2px solid;
-        transition: 2s;
+        
+        
 
     }
-
+    .envia{
+        text-align: center;
+        padding: 90%;
+    }

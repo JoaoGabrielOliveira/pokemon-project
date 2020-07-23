@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import API from '../../service/API'
+
   
 const TYPE_COLORS = {
   bug: 'B1C12E',
@@ -119,6 +120,7 @@ const TYPE_COLORS = {
     }
     render() {
         return  (
+          <>
 
   <p style={{marginTop:"40px"}}>
 
@@ -252,6 +254,8 @@ const TYPE_COLORS = {
               </div>
               {this.state.msg}
           </p>  
+          
+          </>
         );
     };
 

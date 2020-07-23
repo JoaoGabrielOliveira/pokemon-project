@@ -44,10 +44,11 @@ ul li{
 .home :hover{
   border: aqua 2px solid;
   border-radius: 7px;
-  background-image: url("https://img.icons8.com/color/48/000000/squirtle.png");
+  background: url("https://img.icons8.com/color/48/000000/squirtle.png") 0px 30px;
   background-repeat: no-repeat;
-  padding-left: 50px;
+  padding-left: 40px;
   padding-top: 2px;
+  padding-bottom: 50px;
 
   
 
@@ -58,7 +59,7 @@ ul li{
 .Pokedex :hover{
  border-radius: 7px;
  border: rgb(251, 255, 0) 2px solid;
-background-image: url("https://img.icons8.com/color/48/000000/pikachu-pokemon.png" );
+background: url("https://img.icons8.com/color/48/000000/pikachu-pokemon.png" ) 80px 0px;
 background-repeat: no-repeat;
 padding-top: 40px;
 
@@ -72,8 +73,10 @@ padding-top: 40px;
 .Noticia :hover{
   border-radius: 7px;
   border: rgb(43, 255, 0) 2px solid;
-  background: url("https://img.icons8.com/color/48/000000/bullbasaur.png");
+  background: url("https://img.icons8.com/color/48/000000/bullbasaur.png") 80px 30px ;
   background-repeat: no-repeat;
+  padding-top: 2px;
+  padding-bottom: 50px;
 }
 
 
@@ -85,11 +88,9 @@ padding-top: 40px;
 .Notacao :hover{
   border-radius: 7px;
   border: rgb(255, 153, 0) 2px solid;
-  background-image: url("https://img.icons8.com/color/48/000000/charmander.png");
-  position: relative;
-  padding-right: 90px;
+  background: url("https://img.icons8.com/color/48/000000/charmander.png") 80px 0px;
   background-repeat: no-repeat;
-  padding-top: 35px;
+  padding-top: 40px;
 }
   
 
