@@ -18,6 +18,8 @@ module ProjetoAprendizes
 
     config.api_only = true
 
+    config.action_mailer.logger = nil
+
     config.middleware.insert_before 0, Rack::Cors do
     
     allow do
