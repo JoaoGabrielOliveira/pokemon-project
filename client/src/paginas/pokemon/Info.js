@@ -146,6 +146,10 @@ const TYPE_COLORS = {
           this.setState({imageUrl:this.state.modernAvatar});
           this.setState({imageTitleText:'Clique para alterar para o Visual Clássico'});
         break;
+
+        default:
+          this.setState({imageUrl:this.state.classicAvatar});
+        break;
       }
 
       console.log(this.state.imageUrl);
