@@ -17,7 +17,7 @@ export default props =>
     
    <div id="topo1">
       
-       <strong className="titulo"> Historia do Pokemon </strong>
+       <strong className="titulo"> Historia do Pokémon </strong>
        <div className="text">
        Quando jovem, o criador dos monstrinhos, Satoshi Tajiri, gostava bastante de observar e estudar os insetos.<br></br>
        Assim, baseado no conceito da metamorfose, o japonês idealizou um mundo no qual os jogadores batalhavam<br></br>

@@ -8,7 +8,7 @@ export default props =>
     <img className="img2" src="https://thumbs.gfycat.com/WeakSparseDromedary-small.gif"/>
     <div className="tekst" >
     
-<strong className="titu" >O que é Pokedex?</strong>
+<strong className="titu" >O que é Pokédex?</strong>
     <div>
     A Pokédex, também conhecida como Poké-Agenda aqui no Brasil é uma enciclopédia virtual portátil de alta tecnologia  que os treinadores<br></br>
    Pokémon transportam para registra todas as espécies diferentes de Pokémon que são encontradas durante a sua viagem como treinadores. <br></br>
