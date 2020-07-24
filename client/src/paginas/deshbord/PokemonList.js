@@ -139,6 +139,8 @@ export default class PokemonList extends Component {
             minHeight:'50vh'
           };
 
+        let pokemonIndex = 0;
+
         return (
             <>
             <Fragment>
@@ -183,15 +185,17 @@ export default class PokemonList extends Component {
                 
             {this.state.pokemon ?
                 (<div className="row">
-                {this.state.pokemon.map(pokemon => (
-                    <PokemonCard
+                {this.state.pokemon.map(pokemon => {
+                    pokemonIndex++;
+                    return(<PokemonCard
                         key={pokemon.id}
+                        index={pokemonIndex}
                         id={pokemon.id}
                         name={pokemon.name}
                         avatar={pokemon.avatar}
                         cor={pokemon.cor}
-                   />
-                ))}
+                   />)
+                })}
             </div>):(<h1 style={styled}>Carregando lista...</h1>)}
             </Fragment>
             </>

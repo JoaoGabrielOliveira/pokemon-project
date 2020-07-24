@@ -61,7 +61,7 @@ export default class PokemonCard extends Component {
             <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                 <Link to={link}>
                 <Card className='card' style={{ backgroundColor: `#${this.state.themeColor}` }} >
-                        <h5 className="card-header">{this.state.pokemonIndex}</h5>
+                        <h5 className="card-header">{this.props.index}</h5>
                         {this.state.imageLoading?(
                             <img src={pokebola} style={{width:'10em',height:'10em'
                           }}
