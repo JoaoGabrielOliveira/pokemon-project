@@ -27,7 +27,7 @@ export default class API {
         return(res.data);
     }
 
-    static async SeachPokemon(value, options)
+    static async SeachPokemon(value = '', options)
     {
         this.Controller = `/search`;
         let query = value.toLowerCase();
