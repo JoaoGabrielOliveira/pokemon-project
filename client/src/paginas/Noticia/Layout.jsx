@@ -25,7 +25,7 @@ export default class Layout extends React.Component {
 
     async componentDidMount()
     {
-        const resNoticias = await API.getNews(9);
+        const resNoticias = await API.getNews(11);
         const resCores = await API.getAllPokemonType('&color=');
         console.log(resNoticias);
 
@@ -40,6 +40,10 @@ export default class Layout extends React.Component {
                 (
                 this.state.Noticias.slice(min, max).map(noticia => {
                     let colorValue ='#' + _.sample(this.state.altColors);
+                    if(noticia.urlToImage == null && noticia.urlToImage != '')
+                    {
+                        noticia.urlToImage = "https://www.apple-tribe.com/wp-content/uploads/2016/07/pokemon-pikachu-go-2.jpg";
+                    }
 
                     return(
                     <Card key={noticia.title} color={colorValue} title={noticia.title}>
@@ -71,12 +75,16 @@ export default class Layout extends React.Component {
             {this.ExibindoCard(0,3)}
         </div>
 
-        <div className="divisor">
-                <h3>Mundo Pokemon</h3>
+        <div className="divisorG">
+                <h4>Mundo Pokemon</h4>
         </div>
-            <span>
-                {this.ExibindoCard(3,9)}
-            </span>
+            <div className='row'>
+                {this.ExibindoCard(3,7)}
+            </div>
+
+            <div className='row'>
+                {this.ExibindoCard(7,11)}
+            </div>
 
             
         </div>
