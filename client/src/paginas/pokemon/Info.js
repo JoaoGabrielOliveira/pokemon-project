@@ -85,6 +85,7 @@ const TYPE_COLORS = {
       // pegar descrição do pokemon
 
         let femaleRate = pokemonRes.gender_rate;
+        
         const genderRatioFemale = 12.5 * femaleRate;
         const genderRatioMale = 12.5 * (8 - femaleRate);
   
